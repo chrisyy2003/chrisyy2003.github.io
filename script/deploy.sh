@@ -1,1 +1,1 @@
-hexo clean && hexo deploy
+hexo clean && hexo deploy && git add . && git commit -m "update blog"
