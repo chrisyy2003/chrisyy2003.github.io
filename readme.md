@@ -2,7 +2,7 @@
 
 采用Hexo静态博客框架，Github pages部署
 
-`main`分支为博客资源，`pages`分支为生成的静态资源
+`main`分支为博客源码，`pages`分支为生成的静态资源
 
 Site：https://blog.chrisyy.top/
 
