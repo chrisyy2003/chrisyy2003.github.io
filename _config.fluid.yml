@@ -355,7 +355,7 @@ navbar:
     # - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     # - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "links", name: "链接", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -955,14 +955,14 @@ about:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   avatar: /imgs/avatar.png
-  name: "Fluid"
-  intro: "An elegant theme for Hexo"
+  name: "Chrisyy"
+  # intro: "Blog"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
     - { class: "iconfont icon-github-fill", link: "https://github.com/chrisyy2003", tip: "GitHub" }
     - { class: "iconfont icon-bilibili-fill", link: "https://space.bilibili.com/2129246694", tip: "B站" }
-    - { class: "iconfont icon-wechat-fill", qrcode: "/img/qrcode.png" }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/imgs/qrcode.png" }
 
 
 #---------------------------
@@ -1003,29 +1003,26 @@ links:
   banner_mask_alpha: 0.3
   # 友链的成员项
   # Member item of page
+  
   items:
     - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
-      avatar: "/img/favicon.png"
+      title: "Move Book",
+      intro: "部署在本站的MoveBook 中文版",
+      link: "http://movebook.chrisyy.top",
+      avatar: "/imgs/avatar_default.png"
     }
     - {
-      title: "Fluid Docs",
-      intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
-      avatar: "/img/favicon.png"
+      title: "Abreot",
+      intro: "ACM神牛",
+      link: "https://blog.abreto.net/",
+      avatar: "https://avatars.githubusercontent.com/u/1196941?v=4"
     }
-    - {
-      title: "Fluid Repo",
-      intro: "主题 GitHub 仓库",
-      link: "https://github.com/fluid-dev/hexo-theme-fluid",
-      avatar: "/img/favicon.png"
-    }
+
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
-  onerror_avatar: /imgs/avatar.png
+  onerror_avatar: /imgs/avatar_default.png
+
 
   # 友链下方自定义区域，支持 HTML，可插入例如申请友链的文字
   # Custom content at the bottom of the links
