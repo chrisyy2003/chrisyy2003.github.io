@@ -1,1 +1,1 @@
-hexo clean && hexo deploy && git add . && git commit -m "update blog" && git push origin main
+hexo clean && hexo deploy && git add . && git commit -m "Site updated" && git push origin main
