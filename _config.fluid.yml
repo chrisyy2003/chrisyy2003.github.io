@@ -352,7 +352,7 @@ navbar:
   menu:
     - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    # - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
+    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     # - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     - { key: "links", name: "链接", link: "/links/", icon: "iconfont icon-link-fill" }
@@ -567,7 +567,7 @@ post:
     # 字数统计
     # Word count
     wordcount:
-      enable: true
+      enable: false
 
     # 估计阅读全文需要的时长
     # Estimated reading time
@@ -583,7 +583,7 @@ post:
     # 浏览量计数
     # Number of visits
     views:
-      enable: false
+      enable: true
       # 统计数据来源
       # Data Source
       # Options: busuanzi | leancloud
@@ -735,7 +735,7 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
-    type: utterances
+    type: giscus
 
 
 #---------------------------
@@ -877,17 +877,31 @@ cusdis:
 # Based on GitHub Discussions, similar to Utterances
 # See: https://giscus.app/
 giscus:
-  repo:
-  repo-id:
-  category:
-  category-id:
+  repo: "chrisyy2003/chrisyy2003.github.io"
+  repo-id: "R_kgDOISH-pg" 
+  category: "评论"
+  category-id: "DIC_kwDOISH-ps4CSepy"
   theme-light: light
   theme-dark: dark
-  mapping: pathname
+  mapping: "title"
   reactions-enabled: 1
   emit-metadata: 0
   input-position: top
   lang: zh-CN
+
+  # data-repo=""
+  # data-repo-id="R_kgDOISH-pg"
+  # data-category="Announcements"
+  # data-category-id="DIC_kwDOISH-ps4CSepy"
+  # data-mapping="pathname"
+  # data-strict="0"
+  # data-reactions-enabled="1"
+  # data-emit-metadata="0"
+  # data-input-position="top"
+  # data-theme="preferred_color_scheme"
+  # data-lang="zh-CN"
+  # data-loading="lazy"
+  # crossorigin="anonymous"
 
 #---------------------------
 # 归档页
@@ -956,7 +970,8 @@ about:
   banner_mask_alpha: 0.3
   avatar: /imgs/avatar.png
   name: "Chrisyy"
-  # intro: "Blog"
+  intro: "关于我"
+
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
@@ -1038,7 +1053,7 @@ links:
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus
 
-    type: utterances
+    type: giscus
 
 
 

@@ -1,11 +1,12 @@
 ---
 layout: post
-title: movectf-writeup
+title: Movectf 题解writeup
 date: 2022-11-10 14:11:21
-tags:
+categories:
+    - writeup
 ---
 
-> 由 Sui 开发公司 Mysten Labs 支持的首个 MoveCTF（Capture The Flag）安全竞赛包含四道题目一下是所有题目的题解
+> 由 Sui 开发公司 Mysten Labs 支持的首个 MoveCTF（Capture The Flag）安全竞赛包含四道题目，以下是所有题目的题解
 >
 > 题目源码和题解：https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF
 
@@ -131,6 +132,8 @@ let ids_created = recover_ids_created + uid_offset;
 > 
 > 题解代码：[solve code](https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/flash_loan/solve)
 > 
+
+本题利用了Hot Potato实现了Move中的闪电贷，关于什么是Hot Potato可以看一下[Move Patterns Hot Potato](https://blog.chrisyy.top/move-patterns/hot-potato.html)。
 
 根据闪电贷的逻辑，每个人可以给`FlashLender`借钱，并且结构题存在一个VecMap记录着每个人存放了多少。
 

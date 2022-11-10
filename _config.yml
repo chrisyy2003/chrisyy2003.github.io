@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 'blog'
-subtitle: '!!!'
-description: '@@@@'
+title: "Chris's blog"
+subtitle: ''
+description: ''
 keywords:
 author: chrisyy
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://blog.chrisyy.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
