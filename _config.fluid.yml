@@ -977,7 +977,8 @@ about:
   icons:
     - { class: "iconfont icon-github-fill", link: "https://github.com/chrisyy2003", tip: "GitHub" }
     - { class: "iconfont icon-bilibili-fill", link: "https://space.bilibili.com/2129246694", tip: "B站" }
-    - { class: "iconfont icon-wechat-fill", qrcode: "/imgs/qrcode.png" }
+    # - { class: "iconfont icon-wechat-fill", qrcode: "/imgs/qrcode.png" }
+    - { class: "iconfont icon-zhihu-fill", link: "https://www.zhihu.com/people/chrisyy2003", tip: "知乎" }
 
 
 #---------------------------
