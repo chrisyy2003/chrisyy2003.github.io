@@ -1034,6 +1034,12 @@ links:
       avatar: "/imgs/avatar_default.png"
     }
     - {
+      title: " ",
+      intro: "",
+      link: " ",
+      avatar: ""
+    }
+    - {
       title: "Abreot",
       intro: "ACM神牛",
       link: "https://blog.abreto.net/",
