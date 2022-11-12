@@ -1028,10 +1028,22 @@ links:
       avatar: "/imgs/avatar_default.png"
     }
     - {
+      title: "Move Patterns Book",
+      intro: "部署在本站的Move设计模式 中文版",
+      link: "https://blog.chrisyy.top/move-patterns/",
+      avatar: "/imgs/avatar_default.png"
+    }
+    - {
       title: "Abreot",
       intro: "ACM神牛",
       link: "https://blog.abreto.net/",
       avatar: "https://avatars.githubusercontent.com/u/1196941?v=4"
+    }
+    - {
+      title: Squirre17,
+      link: https://squirre17.github.io/,
+      avatar: https://squirre17.github.io/imgs/avatar.jpg,
+      intro: Binary Security/Blockchain Rookie
     }
 
 
