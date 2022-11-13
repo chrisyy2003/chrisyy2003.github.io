@@ -1051,7 +1051,12 @@ links:
       avatar: https://squirre17.github.io/imgs/avatar.jpg,
       intro: Binary Security/Blockchain Rookie
     }
-
+    - {
+      title: t0hka,
+      intro: Reverse Engine/Blockchain noob,
+      link: https://blog.t0hka.top,
+      avatar: https://blog.t0hka.top/upload/2022/09/t0hka.jpg
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
@@ -1062,7 +1067,7 @@ links:
   # Custom content at the bottom of the links
   custom:
     enable: true
-    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
+    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>title: chrisyy</li><li>intro: Security/Move/Minecraft</li><li>link: https://blog.chrisyy.top</li><li>avatar: https://blog.chrisyy.top/imgs/avatar.png</li></ul>'
 
   # 评论插件
   # Comment plugin
