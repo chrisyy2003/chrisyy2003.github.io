@@ -26,7 +26,7 @@
 <meta property="og:description" content="由 Sui 开发公司 Mysten Labs 支持的首个 MoveCTF（Capture The Flag）安全竞赛包含四道题目，以下是所有题目的题解 题目源码和题解：https:&#x2F;&#x2F;github.com&#x2F;chrisyy2003&#x2F;ctf-writeup&#x2F;tree&#x2F;main&#x2F;MoveCTF  checkin 调用entry入口函数从而触发Flag事件 1234567public entry fun">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-10T06:11:21.000Z">
-<meta property="article:modified_time" content="2022-11-10T15:11:55.908Z">
+<meta property="article:modified_time" content="2022-11-16T14:37:13.156Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -319,12 +319,12 @@
 <p>由 Sui 开发公司 Mysten Labs 支持的首个 MoveCTF（Capture The Flag）安全竞赛包含四道题目，以下是所有题目的题解</p>
 <p>题目源码和题解：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF">https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF</a></p>
 </blockquote>
-<h1>checkin</h1>
+<h1 id="checkin">checkin</h1>
 <p>调用entry入口函数从而触发Flag事件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs move"><br>public entry fun get_flag(ctx: &amp;mut TxContext) &#123;<br>        event::emit(Flag &#123;<br>            user: tx_context::sender(ctx),<br>            flag: true<br>        &#125;)<br>    &#125;<br></code></pre></td></tr></table></figure>
 <p>调用函数可以通过cli来调用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs move"># get_flag<br>sui client call --function get_flag --module checkin --package &lt;packageID&gt; --gas-budget 3000<br></code></pre></td></tr></table></figure>
-<h1>simple_game</h1>
+<h1 id="simple-game">simple_game</h1>
 <blockquote>
 <p>题目源码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/simple_game">source code</a></p>
 <p>题解代码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/simple_game/solve">solve code</a></p>
@@ -350,7 +350,7 @@
 <p>最后封装一个<code>refresh_ctx</code>函数，每次使得offset的值+1，（也就是创建的对象数+1）去寻找随机数为0的id数。如果为0则跳出循环，并创建刚才循环次数的对象数从而修改ctx中的参数，最后使得合约下一次随机数为0。</p>
 <p>此外，在<code>slay_boar_king</code>时，源码中创建<code>monster</code>时会<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/blob/main/MoveCTF/simple_game/sources/adventure.move#L69-L72">调用四次随机数</a>，所以打boss时需要预测随机数为0的<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/blob/main/MoveCTF/simple_game/solve/sources/main.move#L20">前四次</a>。</p>
 <p>此题题解源码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/simple_game/solve">https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/simple_game/solve</a></p>
-<h1>flash loan</h1>
+<h1 id="flash-loan">flash loan</h1>
 <blockquote>
 <p>题目源码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/flash_loan">source code</a></p>
 <p>题解代码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/flash_loan/solve">solve code</a></p>
@@ -362,7 +362,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs move">entry public fun do(self: &amp;mut FlashLender, ctx: &amp;mut TxContext) &#123;<br>        let (coin, receipt) = flash::loan(self, 1000, ctx);<br>        flash::deposit(self, coin, ctx);<br>        flash::check(self, receipt);<br>        flash::withdraw(self, 1000, ctx);<br><br>        flash::get_flag(self, ctx);<br>    &#125;<br></code></pre></td></tr></table></figure>
 <p>最后通过cli调用部署的solve合约，从而获得Flag。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs move">sui client call --function do --module m --package &lt;your_packID&gt; --args &lt;FlashLenderID&gt; --gas-budget 3000<br></code></pre></td></tr></table></figure>
-<h1>move_lock</h1>
+<h1 id="move-lock">move_lock</h1>
 <blockquote>
 <p>题目源码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/tree/main/MoveCTF/move_lock">source code</a></p>
 <p>题解代码：<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/ctf-writeup/blob/main/MoveCTF/move_lock/solve.py">solve code</a></p>
@@ -468,6 +468,12 @@ sagamath有在线运行环境：<a target="_blank" rel="noopener" href="https://
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/why-move-is-safety.html" title="Move语言为什么安全">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Move语言为什么安全</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
