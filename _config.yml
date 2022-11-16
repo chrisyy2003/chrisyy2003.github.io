@@ -109,6 +109,9 @@ deploy:
 markdown:
   plugins:
     - "@traptitech/markdown-it-katex"
+  anchors:
+    # Minimum level for ID creation. (Ex. h2 to h6)
+    level: 1
 
 sitemap:
     path: sitemap.xml

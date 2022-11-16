@@ -5,12 +5,13 @@ layout: about
 
 
 
-2018级信息安全专业，天府五街打工人
+2018级信息安全专业，天府街打工人
 
 2022.1 @*Beosin*
 
 ------
 
-dev: *Golang/Python/JavaScript*
-blockchain: *Solidity/Move/Contract Audit*
+Dev: *Golang/Python/JavaScript*
+Blockchain: *Solidity/Move/Contract Audit*
+<!-- Game: *LoL/Minecraft* -->
 
