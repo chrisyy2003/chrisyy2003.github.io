@@ -14,4 +14,3 @@ layout: about
 Dev: *Golang/Python/JavaScript*
 Blockchain: *Solidity/Move/Contract Audit*
 <!-- Game: *LoL/Minecraft* -->
-
