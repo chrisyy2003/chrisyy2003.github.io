@@ -18,12 +18,12 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="概述 区块链是一个很重要的系统，大量资产存放在了区块链上，而且区块链上的这些交易，一旦执行了它是不可以撤销的。所以智能合约就需要有一些规范来规定它是否真的能提供了它所宣传提供的功能，而不是一些意料之外的功能，这就需要我们有一个语言和一套工具来保证这一点。 在这种背景下， Move 语言以及 Move Prover这个工具就应运而生。 Move 是一个面向区块链设计的编程语言，它提供了更好的安全性。">
+    <meta name="description" content="在Move开发者大会上徐萌教授主讲了「用 Move Prover对智能合约进行快速、可靠的形式化验证」主题学术报告，从用户视角解读 Move 语言及 Move Prover，内容深入浅出。 本文仅是对Movebit文章进行了精简和整理，有兴趣请参考Movebit原文：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;574171956  概述 区块链是一个很重要的系统，大量资产存放在了区">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Move语言为什么安全">
+<meta property="og:title" content="Move语言为什么是一个安全的智能合约语言">
 <meta property="og:url" content="https://blog.chrisyy.top/why-move-is-safety.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="概述 区块链是一个很重要的系统，大量资产存放在了区块链上，而且区块链上的这些交易，一旦执行了它是不可以撤销的。所以智能合约就需要有一些规范来规定它是否真的能提供了它所宣传提供的功能，而不是一些意料之外的功能，这就需要我们有一个语言和一套工具来保证这一点。 在这种背景下， Move 语言以及 Move Prover这个工具就应运而生。 Move 是一个面向区块链设计的编程语言，它提供了更好的安全性。">
+<meta property="og:description" content="在Move开发者大会上徐萌教授主讲了「用 Move Prover对智能合约进行快速、可靠的形式化验证」主题学术报告，从用户视角解读 Move 语言及 Move Prover，内容深入浅出。 本文仅是对Movebit文章进行了精简和整理，有兴趣请参考Movebit原文：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;574171956  概述 区块链是一个很重要的系统，大量资产存放在了区">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/MengXu-Move%20Prover-07.jpg">
 <meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221116235606443.png">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/MengXu-Move%20Prover-51.jpg">
 <meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221115183310799.png">
 <meta property="article:published_time" content="2022-11-15T08:08:24.000Z">
-<meta property="article:modified_time" content="2022-11-17T02:12:01.486Z">
+<meta property="article:modified_time" content="2022-11-17T05:19:18.107Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -53,7 +53,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Move语言为什么安全 - Chris&#39;s blog</title>
+  <title>Move语言为什么是一个安全的智能合约语言 - Chris&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -255,7 +255,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Move语言为什么安全</span>
+            <span id="subtitle">Move语言为什么是一个安全的智能合约语言</span>
           
         </div>
 
@@ -282,7 +282,7 @@
         
         
         
-          59 分钟
+          60 分钟
         
       </span>
     
@@ -328,12 +328,16 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Move语言为什么安全</h1>
+            <h1 style="display: none">Move语言为什么是一个安全的智能合约语言</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="概述">概述</h1>
+                <blockquote>
+<p>在Move开发者大会上徐萌教授主讲了「用 Move Prover对智能合约进行快速、可靠的形式化验证」主题学术报告，从用户视角解读 Move 语言及 Move Prover，内容深入浅出。</p>
+<p>本文仅是对Movebit文章进行了精简和整理，有兴趣请参考Movebit原文：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/574171956">https://zhuanlan.zhihu.com/p/574171956</a></p>
+</blockquote>
+<h1 id="概述">概述</h1>
 <p>区块链是一个很重要的系统，大量资产存放在了区块链上，而且区块链上的这些交易，一旦执行了它是不可以撤销的。所以<strong>智能合约就需要有一些规范来规定它是否真的能提供了它所宣传提供的功能，而不是一些意料之外的功能，这就需要我们有一个语言和一套工具来保证这一点。</strong> 在这种背景下， Move 语言以及 Move Prover这个工具就应运而生。</p>
 <p>Move 是一个面向区块链设计的编程语言，它提供了更好的安全性。简单来说 Move 语言的安全性能是由两部分组成的，一是Move的类型系统，二是Move Prover形式化验证的工具。</p>
 <p>并且这两个系统分别提供了不同程度的安全保护，Move中的类型系统提供了：</p>
@@ -531,7 +535,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Move语言为什么安全</div>
+      <div>Move语言为什么是一个安全的智能合约语言</div>
       <div>https://blog.chrisyy.top/why-move-is-safety.html</div>
     </div>
     <div class="license-meta">
