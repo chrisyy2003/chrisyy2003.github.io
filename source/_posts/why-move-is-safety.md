@@ -1,10 +1,14 @@
 ---
 layout: post
-title: Move语言为什么安全
+title: Move语言为什么是一个安全的智能合约语言
 date: 2022-11-15 16:08:24
 categories:
     - blockchain
 ---
+
+> 在Move开发者大会上徐萌教授主讲了「用 Move Prover对智能合约进行快速、可靠的形式化验证」主题学术报告，从用户视角解读 Move 语言及 Move Prover，内容深入浅出。
+>
+> 本文仅是对Movebit文章进行了精简和整理，有兴趣请参考Movebit原文：https://zhuanlan.zhihu.com/p/574171956
 
 # 概述
 

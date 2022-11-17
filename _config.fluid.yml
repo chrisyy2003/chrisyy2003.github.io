@@ -1024,7 +1024,7 @@ links:
     - {
       title: "Move Book",
       intro: "部署在本站的MoveBook 中文版",
-      link: "http://movebook.chrisyy.top",
+      link: "https://movebook.chrisyy.top",
       avatar: "/imgs/avatar_default.png"
     }
     - {
