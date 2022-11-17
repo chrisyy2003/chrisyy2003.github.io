@@ -1030,7 +1030,7 @@ links:
     - {
       title: "Move Patterns Book",
       intro: "部署在本站的Move设计模式 中文版",
-      link: "https://blog.chrisyy.top/move-patterns/",
+      link: "https://move-patterns.chrisyy.top",
       avatar: "/imgs/avatar_default.png"
     }
     - {
