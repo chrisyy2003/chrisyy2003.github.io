@@ -1,12 +1,16 @@
 ---
 layout: post
-title: Golang
+title: GoLang
 date: 2022-11-18 17:54:16
 categories:
     - develop
 ---
 
 # Go基础
+
+> 分享一些我的Golang笔记，已助我拿到多个15k+的Offer，在面向Golang岗位时，Golang考察占比40%，其中问内置的数据结构如Map，channel，slice占比又是最大的。
+>
+> 当然语言不是根本，还要配合其他计算机八股文和一些基础的算法知识。
 
 ## 与java的区别
 
