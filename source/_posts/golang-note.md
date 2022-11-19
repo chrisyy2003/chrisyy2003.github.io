@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Golang 笔记
+title: Golang
 date: 2022-11-18 17:54:16
 categories:
-    - language
+    - develop
 ---
 
 # Go基础
