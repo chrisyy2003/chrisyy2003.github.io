@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://blog.chrisyy.top/Mysql%20290c6bfcaa1342a197c56f22363a1c73.html</loc>
-    
-    <lastmod>2022-11-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.chrisyy.top/why-move-is-safety.html</loc>
     
     <lastmod>2022-11-17</lastmod>
@@ -67,14 +58,14 @@
 
   
   <url>
-    <loc>https://blog.chrisyy.top/categories/develop/</loc>
+    <loc>https://blog.chrisyy.top/categories/writeup/</loc>
     <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.chrisyy.top/categories/writeup/</loc>
+    <loc>https://blog.chrisyy.top/categories/develop/</loc>
     <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
