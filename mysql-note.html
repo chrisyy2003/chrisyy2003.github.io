@@ -18,22 +18,20 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="数据库三大范式是什么  第一范式：每个列都不可以再拆分。 第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能是依 赖于主键的一部分。 第三范式：在第二范式的基础上，非主键列只依赖于主键，不依赖于其他 非主键。  在设计数据库结构的时候，要尽量遵守三范式，如果不遵守，必须有足够 的理由。比如性能。事实上我们经常会为了性能而妥协数据库的设计。 MySQL 执行流程  MySQL 的架构共分为">
+    <meta name="description" content="数据库三大范式是什么  第一范式：每个列都不可以再拆分。 第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能是依 赖于主键的一部分。 第三范式：在第二范式的基础上，非主键列只依赖于主键，不依赖于其他 非主键。  在设计数据库结构的时候，要尽量遵守三范式，如果不遵守，必须有足够 的理由。比如性能。事实上我们经常会为了性能而妥协数据库的设计。 MySQL 执行流程 ![](https:&#x2F;&#x2F;c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL">
 <meta property="og:url" content="https://blog.chrisyy.top/mysql-note.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="数据库三大范式是什么  第一范式：每个列都不可以再拆分。 第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能是依 赖于主键的一部分。 第三范式：在第二范式的基础上，非主键列只依赖于主键，不依赖于其他 非主键。  在设计数据库结构的时候，要尽量遵守三范式，如果不遵守，必须有足够 的理由。比如性能。事实上我们经常会为了性能而妥协数据库的设计。 MySQL 执行流程  MySQL 的架构共分为">
+<meta property="og:description" content="数据库三大范式是什么  第一范式：每个列都不可以再拆分。 第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能是依 赖于主键的一部分。 第三范式：在第二范式的基础上，非主键列只依赖于主键，不依赖于其他 非主键。  在设计数据库结构的时候，要尽量遵守三范式，如果不遵守，必须有足够 的理由。比如性能。事实上我们经常会为了性能而妥协数据库的设计。 MySQL 执行流程 ![](https:&#x2F;&#x2F;c">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/Untitled.png">
-<meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119133912858.png">
-<meta property="og:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119133940909.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image.png">
 <meta property="article:published_time" content="2022-11-19T05:36:39.000Z">
-<meta property="article:modified_time" content="2022-11-19T05:45:27.570Z">
+<meta property="article:modified_time" content="2022-11-25T13:10:23.446Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/Untitled.png">
+<meta name="twitter:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -268,7 +266,7 @@
         
         
         
-          34 分钟
+          35 分钟
         
       </span>
     
@@ -330,7 +328,7 @@
 <p>在设计数据库结构的时候，要尽量遵守三范式，如果不遵守，必须有足够<br>
 的理由。比如性能。事实上我们经常会为了性能而妥协数据库的设计。</p>
 <h1 id="MySQL-执行流程">MySQL 执行流程</h1>
-<p><img src="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/Untitled.png" srcset="/img/loading.gif" lazyload alt="Untitled"></p>
+<p>![](<a target="_blank" rel="noopener" href="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled">https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled</a> (7).png)</p>
 <p>MySQL 的架构共分为两层：<strong>Server 层和存储引擎层</strong>，</p>
 <ul>
 <li><strong>Server 层负责建立连接、分析和执行 SQL</strong>。MySQL 大多数的核心功能模块都在这实现，主要包括连接器，查询缓存、解析器、预处理器、优化器、执行器等。另外，所有的内置函数（如日期、时间、数学和加密函数等）和<strong>所有跨存储引擎的功能</strong>（如存储过程、触发器、视图等。）都在 Server 层实现。</li>
@@ -412,7 +410,7 @@ B 树和 B+ 树等值查询原理基本一致，<strong>先从根节点查找，
 <p><strong>在一个事务内多次读取同一个数据，如果出现前后两次读到的数据不一样的情况，就意味着发生了「不可重复读」现象。</strong></p>
 <p><strong>在一个事务内多次查询某个符合查询条件的「记录数量」，如果出现前后两次查询到的记录数量不一样的情况，就意味着发生了「幻读」现象。</strong></p>
 <p>这三个现象的严重性排序如下：</p>
-<p><img src="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119133912858.png" srcset="/img/loading.gif" lazyload alt="image-20221119133912858"></p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>SQL 标准提出了四种隔离级别来规避这些现象，隔离级别越高，性能效率就越低，这四个隔离级别如下：</p>
 <ul>
 <li><strong>读未提交（<em>read uncommitted</em>）</strong>，指一个事务还没提交时，它做的变更就能被其他事务看到；</li>
@@ -421,7 +419,7 @@ B 树和 B+ 树等值查询原理基本一致，<strong>先从根节点查找，
 <li><strong>串行化（<em>serializable</em> ）</strong>；会对记录加上读写锁，在多个事务对这条记录进行读写操作时，如果发生了读写冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行；</li>
 </ul>
 <p>按隔离水平高低排序如下：</p>
-<p><img src="https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119133940909.png" srcset="/img/loading.gif" lazyload alt="image-20221119133940909"></p>
+<p>![](<a target="_blank" rel="noopener" href="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image">https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image</a> (1).png)</p>
 <p><strong>InnoDB 引擎的默认隔离级别虽然是「可重复读」，但是它通过next-key lock 锁（行锁和间隙锁的组合）来锁住记录之间的“间隙”和记录本身，防止其他事务在这个记录之间插入新的记录，这样就避免了幻读现象。</strong></p>
 <p>这四种隔离级别具体是如何实现的呢？</p>
 <ul>
