@@ -23,9 +23,9 @@ categories:
 
 ## 数据类型与关键字
 
-![image-20221119131311391](https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119131311391.png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (1).png)
 
-![Untitled](https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/Untitled.png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (2).png)
 
 ## print格式化输出函数
 
@@ -258,9 +258,29 @@ value, ok := m["name"]
 
 根据 key 的不同类型/返回参数，编译器会将查找函数用更具体的函数替换
 
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (3).png)
+
+1. **写保护监测**
+
+   map 的标志位 flags。如果 flags 的写标志位此时被置 1 了，说明有其他协程在执行“写”操作，**进而导致程序 panic**，这也说明了 map 不是线程安全的
+
+2. 计算hash
+
+   **看高8位**和**低B位** `10010111 | ... │ 01010`
+
+3. **找到hash对应的bucket**
+
+   **哈希值的低B个bit 位**，用来定位key所存放的bucket，如果**当前正在扩容中**，并且定位到的旧bucket数据还未完成迁移，则使用**旧的bucket**（扩容前的bucket）
+
+4. **遍历bucket查找**
+
+   用步骤2中的hash值，**得到高8个bit位**，用来快速判断key是否已在当前bucket中，也就是`10010111`，转化为十进制，也就是151。在 bucket 及bucket的overflow中寻找tophash 值（HOB hash）为 151* 的 槽位，即为key所在位置
+
+**5. 返回key对应的指针**
+
 流程如下图：
 
-![Untitled 2](https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/Untitled%202.png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (4).png)
 
 Map遍历
 
@@ -338,7 +358,7 @@ Go 的 GC 回收有三次演进过程：
 2. GoV1.5 三色标记法，堆空间启动写屏障，栈空间不启动，全部扫描之后，需要重新扫描一次栈(需要 STW)，效率普通。
 3. GoV1.8 三色标记法，混合写屏障机制，栈空间不启动（全部标记成黑色），堆空间启用写屏障，整个过程不要 STW，效率高。
 
-### ****三色标记法****
+### 三色标记法
 
 1. 创建：白、灰、黑 三个集合
 2. 将所有对象放入白色集合中
@@ -365,7 +385,7 @@ Go 的 GC 回收有三次演进过程：
 3. **标记终止（Mark Termination**）：对触发写屏障的对象进行重新扫描标记，关闭写屏障（Write Barrier），需 STW（stop the world)
 4. **清理（Sweeping）**：将需要回收的内存归还到堆中，将过多的内存归还给操作系统，与用户程序并发执行
 
-### **其他语言GC算法**
+### 其他语言GC算法
 
 - 引用计数：每个对象维护一个引用计数，当引用该对象的**对象被销毁时，引用计数减1**，当引用**计数器为0时回收该对象**。 
   优点：对象可以很快的被回收，不会出现内存耗尽或达到某个阀值时才回收。 
@@ -458,7 +478,7 @@ channel是Go语言中的一个**数据类型**，可以把它看成管道，用�
 
 **常见问题**
 
-![image-20221119131927772](https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119131927772.png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (5).png)
 
 ### channel数据结构
 
@@ -487,7 +507,7 @@ channel内部数据结构主要包含：
 
 hchan结构体中**采用Mutex锁来保证数据读写安全**。在**对循环数组buf中的数据进行入队**和出队操作时，必须先获取**互斥锁**，才能操作channel数据。
 
-![image-20221119131909355](https://blog-1258732960.cos.ap-chengdu.myqcloud.com/blog-img/image-20221119131909355.png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (6).png)
 
 ### channel应用场景
 
@@ -577,7 +597,7 @@ golang控制并发有三种经典的方式：
    而mutex关注的是是数据不动，**某段时间只给一个协程访问数据的权限**，**适用于数据位置固定的场景。**
 2. channel的性能比锁代价要大很多
 
-****channel和共享内存有什么优劣势****
+channel和共享内存有什么优劣势
 
 Go的设计思想就是, 不要通过共享内存来通信，而是通过通信来共享内存，前者就是传统的加锁，后者就是Channel。
 
@@ -616,8 +636,6 @@ channel优势是降低了并发中的耦合，劣势是会出现死锁。
 
 ## 接口
 
-[https://www.liwenzhou.com/posts/Go/12_interface/#autoid-1-6-2](https://www.liwenzhou.com/posts/Go/12_interface/#autoid-1-6-2)
-
 在Go语言中接口（interface）**是一种类型，一种抽象的类型。**
 
 Go 引入了动态语言的便利，同时又会进行静态语言的类型检查，Go 采用了折中的做法：不要求类型**显示地声明实现了某个接口**，**只要实现了相关的方法即可**，编译器就能检测到。
@@ -627,6 +645,12 @@ Go 引入了动态语言的便利，同时又会进行静态语言的类型检�
 接口接收者是指针类型，则只能接受指针类型的赋值
 
 接口是值类型，则都可以
+
+参考：
+
+[https://www.liwenzhou.com/posts/Go/12_interface/#autoid-1-6-2](https://www.liwenzhou.com/posts/Go/12_interface/#autoid-1-6-2)
+
+
 
 ### ****接口断言****
 

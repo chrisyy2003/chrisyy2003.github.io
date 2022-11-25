@@ -11,6 +11,6 @@ layout: about
 
 ------
 
-Dev: *Golang/Python/JavaScript*
-Blockchain: *Solidity/Move/Contract Audit*
+Dev: ***Golang**/**Python**/JavaScript(ES6)/Vue*
+Blockchain: ***Move**/Solidity/Contract Audit*
 <!-- Game: *LoL/Minecraft* -->
