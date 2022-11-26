@@ -42,7 +42,7 @@ Move 的核心设计思想其实包括两点，第一点是它遵循了所谓的
 
 最后Move中有一个完整的并且很强大的一个规范语言MSL。除了 Move 语言本身，开发者还可以对 Move 的程做出一些规范（spec），这个规范包括常见的pre/post condition，然后还有全局的全局状态不变量（global state invariant），这些我们都可以通过规范语言来实现。MSL规范语言其实是比 Move 语言本身要更强大的。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-09.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-09.jpg)
 
 # Move 类型系统
 
@@ -65,7 +65,7 @@ Move 类型系统其实是 Move 的第一个安全特性，它主要保证了三
 
 熟悉 Move 会觉得这个说法的不太对，比如Move中具有一个freeze这样的操作，它可以把一个mutable reference改成一个immutable，或者有那种as语法可以把一个uint8变成另一个uint64。但实际你却发现这个操作它并没有对变量做改变，它做的其实是重新新建了一个变量，并且把新的变量给它一个固定的类型，所以这些操作并没有违反 Move 的类型安全保证。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-18.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-18.jpg)
 
 例如如果试图编译如下的代码的话，可以发现如果你写了一个类型不安全的程序， Move compiler根本就不会让你通过，会直接报错，说你在这里试图把一个`integer`转换成一个`Coin`，当然这样是不合理的，所以这就是 Move 类型安全所要保证的。
 
@@ -94,7 +94,7 @@ module 0x1::Account {
 
 在常见的这种编程语言里没有资源安全这个东西，Move中的资源安全允许你去做一些更细粒度的控制。对于比如说一个object它可不可以被复制，可不可以被丢弃，或者这个资源能存在于什么地方，以及这个资源的谁能生成，这个是对整个这种type的资源的一个控制。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-22.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-22.jpg)
 
 我们如果举一个具体的例子来说的话。比如区块链上具有一种资源`Coin`，显然你如果试图复制一个 `coin`这种资源，相当于你从一个 `Coin` 变成两个`Coin`，那显然你钱就变多了，这个是不能接受的，同时 `Coin` 也不可能凭空消失，你必须把它花出去。简单来说就是一个东西它不能凭空出现，也不能凭空消失。这样的稀缺性就是由Move中的ablity，copy和drop来实现的。
 
@@ -110,7 +110,7 @@ copy和drop这两个ability，它保证说一个资源它是不是能被复制�
 
 Move中还有一个引用安全保证了安全性。如果你习惯于c语言或者c++，你肯定会遇到这种所谓的dangling pinter的问题，也就是野指针，野指针可能导致修改任意对象的问题。所以在Move中引入了所有权，来保证这一问题。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-27.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-27.jpg)
 
 "引用安全"简单来说就是遵循了Rust的所谓的ownership的规则：
 
@@ -145,7 +145,7 @@ Move中还有一个引用安全保证了安全性。如果你习惯于c语言或
 
 一个最简单的例子，比如你根据一些事实或者商业逻辑，需要定义一个包含非0的64位的整数的结构体，最有效的方式是如果一个语言系统里已经存在一个非0的64位的整数类型，那么直接使用即可。但是这是目前在绝大多数语言里是没有办法做到，因为没有一个类型叫非0的64位整数。你能得到的最近的一个东西就是一个64位整数。所以你可以创造一个结构体，结构体的名字叫非零64位整数，然后里面有一个field，它叫结构体的值，然后它是64位整数。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-34.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-34.jpg)
 
 但是这里存在一个问题，也就是整个所有的这些类型这个系统并不能阻止你写一个0进去，如果不小心写出来一个上图的函数 `fun create_zero()`它允许把一个0放到了结构体里面，这对运行时和编译器来说是完全没有问题的，但是这显然不是我们想要的。
 
@@ -167,13 +167,13 @@ Move Prover可以对一个函数做一个规范，其中就包括函数应该表
 
 **可以把函数规范想象成一个人在写单元测试，但这个人比任何人写的测试都要好。**
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-37.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-37.jpg)
 
 比如上图的代码，如果想知道这个代码对还是不对？那么你就可以开始对他做单元测试。
 
 大家可能都听过一个单元测试的笑话，说QA工程师走进一家酒吧，要了一杯啤酒；要了-1杯啤酒，要了9999999杯啤酒，要了一杯洗脚水.... 然后这其实就是单元测试做的一个事情。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-39.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-39.jpg)
 
 如果想去测试这个就取钱的函数，你会怎么做？你去走到一个ATM机前，然后你开始取钱，取10块钱，取1000块钱，取9999999999999999999999999099块钱，甚至从一个不应该取钱的一个地址，比如说零这个地址去取，取0块钱等，就是有目的的去测试一些边界值的可能性。
 
@@ -183,7 +183,7 @@ Move Prover可以对一个函数做一个规范，其中就包括函数应该表
 
 Move prover 给你提供了允许你去更专业去表达这个函数应该怎么样做事务处理的机会，就是通过所谓的函数的规范你可以写一个取钱函数的规范。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-40.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-40.jpg)
 
 上图是一个取钱的功能函数，取钱可能出现的错误存在两个地方：
 
@@ -202,7 +202,7 @@ Move prover 给你提供了允许你去更专业去表达这个函数应该怎�
 
 Prover除了关注它在什么情况下会出错，它还能够约束这个函数执行完要达到什么样的状态，这是比报错情况更重要的一个事情。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-44.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-44.jpg)
 
 对于取钱这个函数的话，你得到的状态应该是当你的取钱函数结束了，你的钱肯定会减少，同时你减少的钱一定是等于你要取出来的钱。比如说你说要取100万，它一定是只减少100万，它不能减少200万，他也不能减少50万，他只能减少100万，这个东西就叫 后置条件post condition。
 
@@ -212,7 +212,7 @@ Prover除了关注它在什么情况下会出错，它还能够约束这个函�
 
 这种比较类似于测试中的setup
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-46.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-46.jpg)
 
 所以简单来说就是你有前置条件，你有异常条件和你有后置条件，你这个东西就可以完整的规范说你这个函数应该做什么，以及不能做什么，这就是函数的规范的内容。
 
@@ -220,7 +220,7 @@ Prover除了关注它在什么情况下会出错，它还能够约束这个函�
 
 全局不变量类似于结构体不变量，只不过它能够限制所有拥有这个类型资源的状态。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-49.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-49.jpg)
 
 如果把全局的区块链看作一个状态机的话，Global的资源状态就是区块链当前的状态。全局不变量提供了一个工具去描述什么状态是对的，什么状态是不对的这样一个功能，同时它还给你描述了在哪些情况下你可以做这个状态的转换。
 
@@ -233,11 +233,11 @@ Prover除了关注它在什么情况下会出错，它还能够约束这个函�
 
 那么形式化的规范可以按照下图来写，当你开始实现你的功能代码的时候，那么Prover可以根据规范来检查你的错误。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-50.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-50.jpg)
 
 有了上图的规范代码后，你根本就不去关心它函数到底怎么实现，然后就可以去真正去写金融的实现，比如说你有一个取钱的函数，如下图的实现。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-51.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-51.jpg)
 
 当写完上述代码，**我们写完的这两个函数自动的就会被这两个全局的规范所限制**。刚刚那个代码去 Prover 验证的时候，我们会发现验证不过，因为写的函数里面并没有去支持我们想要的全局规范。
 
@@ -245,7 +245,7 @@ Prover除了关注它在什么情况下会出错，它还能够约束这个函�
 
 # 总结
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move Prover-07.jpg)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/MengXu-Move%20Prover-07.jpg)
 
 以上就是Move为什么是一门安全的智能合约语言的介绍，简单的说就是通过类型系统和形式化验证系统来保证的。
 
