@@ -309,4 +309,4 @@ sui client call \
 
 ![image-20221128182935767](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128182935767.png)
 
-以上是Sui Move合约开发入门的第一节，此处可以查看本文提到的代码。在Sui入门的第二节会来带Sui中的`Event`，初始化`Init`函数和Sui合约测试的相关内容。
+以上是Sui Move合约开发入门的第一节，[此处](https://github.com/chrisyy2003/sui-by-example/tree/main/hello_world)可以查看本文提到的代码。在Sui入门的第二节会来带Sui中的`Event`，初始化`Init`函数和Sui合约测试的相关内容。
