@@ -55,7 +55,7 @@ sui --version
 
 ## 命令行
 
-安装完Sui 二进制文件后，我们可以便可以与Sui Devnet交互。
+安装完Sui 二进制文件后，我们便可以与Sui Devnet交互。
 
 要将 Sui 客户端连接到 Sui Devnet，请运行以下命令：
 
