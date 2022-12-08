@@ -100,11 +100,12 @@ source venv/bin/activate
 
 ![image-20221208142423327](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png)
 
-随后使用pip3安装nonebot脚手架，并通过nb命令创建bot代码，具体可以参考[nonebot](https://v2.nonebot.dev/docs/start/installation)文档
+随后使用pip3安装nonebot脚手架，并通过nb命令创建bot代码，通过`nb run`运行bot具体可以参考[nonebot](https://v2.nonebot.dev/docs/start/installation)文档
 
 ```
  pip3 install nb-cli
  nb
+ nb run
 ```
 
 ![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
