@@ -1,12 +1,10 @@
 ---
 layout: post
-title: 5分钟搭建在QQ群ChatGPT机器人！
+title: 5分钟在QQ群搭建ChatGPT机器人！
 date: 2022-12-07 23:35:05
 categories:
     - other
 ---
-
-《人工智能》
 
 # 预先配置
 
