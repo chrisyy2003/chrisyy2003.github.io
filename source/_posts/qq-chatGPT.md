@@ -65,7 +65,9 @@ categories:
 
 之后我们以Linux系统演示后面的步骤，
 
-首次启动时，cqhttp会读取当前目录下是否有`config.yml`文件如果没有则会生成一个**配置文件** , 根据提示选择编号3（因为nonebot暂时只有反向socket），重新启动后如果成功会显示如下信息
+首次启动时，cqhttp会读取当前目录下是否有`config.yml`文件如果没有则会生成一个**配置文件** 
+
+随后**根据提示选择编号3**（因为nonebot暂时只有反向socket），重新启动后如果成功会显示如下信息
 
 ![image-20221208120226802](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208120226802.png)
 
@@ -76,9 +78,9 @@ cqhttp启动时会读取当前目录下是否有`config.yml`文件，如果有�
 我们需要配置的只有两个地方：
 
 1. 修改qq账号
-2. 修改ws-reverse中universal为` ws://127.0.0.1:8080/onebot/v11/ws`即：
+2. 修改`ws-reverse`中`universal`为` ws://127.0.0.1:8080/onebot/v11/ws`最后servers部分的配置如下：
 
-![image-20221208141937474](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208141937474.png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208141937474.png)
 
 
 
@@ -129,7 +131,7 @@ CHATGPT_TO_ME="False"				# 是否需要@机器人
 
 最后文件显示如下：
 
-![image-20221208133037973](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133037973.png)
+![image-20221208160709537](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208160709537.png)
 
 启动bot使用`nb run`命令，可以在输出信息中查看我们的插件是否被加载.
 
@@ -139,11 +141,21 @@ CHATGPT_TO_ME="False"				# 是否需要@机器人
 
 ![image-20221208143538843](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143538843.png)
 
+最后，如果不需要斜杠`/`来触发命令，则在`.env.dev`文件中配置如下即可。
 
+```
+command_start=[""]
+```
+
+那么配置之后的效果则是通过**chat可以直接触发**
+
+![image-20221208162320883](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208162320883.png)
 
 关于上文的插件更多的配置可以参考[仓库链接](https://github.com/A-kirami/nonebot-plugin-chatgpt)
 
 更多的插件请参考[nonebot商店](https://v2.nonebot.dev/store)
+
+
 
 # 闲聊群
 
