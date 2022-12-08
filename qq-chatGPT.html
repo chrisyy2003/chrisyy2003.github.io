@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chrisyy">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="《人工智能》 预先配置 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  其中go-cqhttp是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5分钟搭建在QQ群ChatGPT机器人！">
+<meta property="og:url" content="https://blog.chrisyy.top/qq-chatGPT.html">
+<meta property="og:site_name" content="Chris&#39;s blog">
+<meta property="og:description" content="《人工智能》 预先配置 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  其中go-cqhttp是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208094303224.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208120226802.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208141937474.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133037973.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143447455.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143538843.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
+<meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
+<meta property="article:modified_time" content="2022-12-08T07:14:08.210Z">
+<meta property="article:author" content="chrisyy">
+<meta property="article:tag" content="other">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>5分钟搭建在QQ群ChatGPT机器人！ - Chris&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.chrisyy.top","root":"/","version":"1.9.3","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"b7d7bef5124e9c81d009593c3cc341db","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":"21467505","cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?b7d7bef5124e9c81d009593c3cc341db";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/21467505.js');
+      }
+    </script>
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chrisyy2003</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">5分钟搭建在QQ群ChatGPT机器人！</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-07 23:35" pubdate>
+          2022年12月7日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">5分钟搭建在QQ群ChatGPT机器人！</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>《人工智能》</p>
+<h1 id="预先配置">预先配置</h1>
+<p>本文将带来快速简单在QQ群中接入ChatGPT的教程。</p>
+<p>接入ChatGPT的安装步骤仅需三步，其中分别是：</p>
+<ol>
+<li>安装cqhttp</li>
+<li>安装nonebot框架</li>
+<li>安装chatGPT插件</li>
+</ol>
+<p>其中<strong>go-cqhttp</strong>是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqhttp只是其中的一种，还有其他的框架例如：<a href="https://link.zhihu.com/?target=https%3A//github.com/Mrs4s/go-cqhttp">go-cqhttp</a>，<a href="https://link.zhihu.com/?target=https%3A//github.com/mamoe/mirai">Mirai</a>等等。它们都解析了QQ协议，使用自己的语言实现了统一的接口，所以可以直白的理解为它们是模拟的一个QQ客户端。</p>
+<p>第二部分是安装框架，第一步的作用是模拟QQ客户端与QQ服务器进行交流，那么第二部分就是接受这些客户端的消息，封装这些<strong>发送消息的API接口</strong>，便于我们在<strong>不同的编程语言</strong>中调用，而nonebot则是一个使用python语言实现的机器人框架，基于其他语言的框架也有很多，例如TypeScript语言实现的<a href="https://link.zhihu.com/?target=https%3A//github.com/koishijs/koishi">koishi</a> 框架等等。</p>
+<p>最后一部分安装自定义插件，这一部分则是是我们真正需要编写的<strong>机器人的逻辑</strong>，如果需要编写插件则需要学习编程语言，但是如果只是使用别人的插件，<strong>则几行命令就可以搞定</strong>。</p>
+<p>所以整个架构大体可以如下图所示</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png" srcset="/img/loading.gif" lazyload alt="image-20221208150026750"></p>
+<h1 id="安装cqhttp">安装cqhttp</h1>
+<h2 id="下载">下载</h2>
+<p>首先安装cqhttp框架，我们从 <a target="_blank" rel="noopener" href="https://github.com/Mrs4s/go-cqhttp/releases">release</a> 界面下载最新版本的 go-cqhttp，需要根据不同的系统选择不同的文件：</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208094303224.png" srcset="/img/loading.gif" lazyload alt="image-20221208094303224"></p>
+<p>这里我保存了最常用的系统（Linux，MacOS，Windows 64位）对应的文件，可以<a target="_blank" rel="noopener" href="http://file.chrisyy.top/go-cqhttp-all.zip">直接下载</a>。</p>
+<p>系统类型对应更详细的说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">系统类型</th>
+<th style="text-align:center">可执行文件</th>
+<th style="text-align:center">压缩文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Intel 版 Macos</td>
+<td style="text-align:center">Not available</td>
+<td style="text-align:center"><code>go-cqhttp_darwin_amd64.tar.gz</code></td>
+</tr>
+<tr>
+<td style="text-align:center">M1 版 Macos</td>
+<td style="text-align:center">Not available</td>
+<td style="text-align:center"><code>go-cqhttp_darwin_arm64.tar.gz</code></td>
+</tr>
+<tr>
+<td style="text-align:center">32 位 Linux</td>
+<td style="text-align:center">Not available</td>
+<td style="text-align:center"><code>go-cqhttp_linux_386.tar.gz</code></td>
+</tr>
+<tr>
+<td style="text-align:center">64 位 Linux</td>
+<td style="text-align:center">Not available</td>
+<td style="text-align:center"><code>go-cqhttp_linux_amd64.tar.gz</code></td>
+</tr>
+<tr>
+<td style="text-align:center">arm64 Linux</td>
+<td style="text-align:center">Not available</td>
+<td style="text-align:center"><code>go-cqhttp_linux_arm64.tar.gz</code></td>
+</tr>
+<tr>
+<td style="text-align:center">armv7 Linux</td>
+<td style="text-align:center">Not available</td>
+<td style="text-align:center"><code>go-cqhttp_linux_armv7.tar.gz</code></td>
+</tr>
+<tr>
+<td style="text-align:center">32 位 Windows</td>
+<td style="text-align:center"><code>go-cqhttp_windows_386.exe</code></td>
+<td style="text-align:center"><code>go-cqhttp_windows_386.zip</code></td>
+</tr>
+<tr>
+<td style="text-align:center">64 位 Windows</td>
+<td style="text-align:center"><code>go-cqhttp_windows_amd64.exe</code></td>
+<td style="text-align:center"><code>go-cqhttp_windows_amd64.zip</code></td>
+</tr>
+<tr>
+<td style="text-align:center">arm64 Windows</td>
+<td style="text-align:center"><code>go-cqhttp_windows_arm64.exe</code></td>
+<td style="text-align:center"><code>go-cqhttp_windows_arm64.zip</code></td>
+</tr>
+<tr>
+<td style="text-align:center">armv7 Windows</td>
+<td style="text-align:center"><code>go-cqhttp_windows_armv7.exe</code></td>
+<td style="text-align:center"><code>go-cqhttp_windows_armv7.zip</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="启动">启动</h2>
+<p>下载完成之后，在Windows下请使用自己熟悉的解压软件自行解压 ，Linux下在命令行中输入 <code>tar -xzvf [文件名]</code>进行解压。</p>
+<p>在Windows 中双击<code>go-cqhttp_*.exe</code>，根据提示生成运行脚本，随后根据提示操作即可。</p>
+<p>在Linux系统中，输入 <code>./go-cqhttp</code>, <code>Enter</code>运行。</p>
+<hr>
+<p>之后我们以Linux系统演示后面的步骤，</p>
+<p>首次启动时，cqhttp会读取当前目录下是否有<code>config.yml</code>文件如果没有则会生成一个<strong>配置文件</strong> , 根据提示选择编号3（因为nonebot暂时只有反向socket），重新启动后如果成功会显示如下信息</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208120226802.png" srcset="/img/loading.gif" lazyload alt="image-20221208120226802"></p>
+<h2 id="配置">配置</h2>
+<p>cqhttp启动时会读取当前目录下是否有<code>config.yml</code>文件，如果有则会依赖文件中的配置，配置中包含我我们的<strong>账号信息</strong>和<strong>通讯方式</strong>。</p>
+<p>我们需要配置的只有两个地方：</p>
+<ol>
+<li>修改qq账号</li>
+<li>修改ws-reverse中universal为<code> ws://127.0.0.1:8080/onebot/v11/ws</code>即：</li>
+</ol>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208141937474.png" srcset="/img/loading.gif" lazyload alt="image-20221208141937474"></p>
+<h1 id="安装NoneBot">安装NoneBot</h1>
+<p>第二部安装NoneBot框架，这一步建议使用python中虚拟环境进行安装，并确保python版本在3.8以上。</p>
+<p>使用venv创建一个虚拟环境，并使用souce加载环境</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python3</span> --<span class="hljs-keyword">version</span> 查看版本<br><span class="hljs-keyword">python3</span> -<span class="hljs-keyword">m</span> venv venv<br><span class="hljs-keyword">source</span> venv/bin/activate<br></code></pre></td></tr></table></figure>
+<p>如果报错请查一下相关资料，如果加载成功可以看到命令行前带有<strong>venv提示符</strong>：</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png" srcset="/img/loading.gif" lazyload alt="image-20221208142423327"></p>
+<p>随后使用pip3安装nonebot脚手架，并通过nb命令创建bot代码，具体可以参考<a target="_blank" rel="noopener" href="https://v2.nonebot.dev/docs/start/installation">nonebot</a>文档</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">pip3 install <span class="hljs-keyword">nb</span>-cli<br><span class="hljs-keyword">nb</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png" srcset="/img/loading.gif" lazyload alt="image-20221208125102633"></p>
+<p>至此Bot已经基本配置成功，并且安装了一个最简单的echo插件（可选的），可以使用<code>/echo</code>命令让其输出一些信息</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png" srcset="/img/loading.gif" lazyload alt="image-20221208142819097"></p>
+<h1 id="安装插件">安装插件</h1>
+<p>最后一步安装我们自定的插件，使用nb直接安装</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">nb <span class="hljs-keyword">plugin</span> install nonebot-<span class="hljs-keyword">plugin</span>-chatgpt<br></code></pre></td></tr></table></figure>
+<p>安装完成之后，我们需要配置一些信息，在创建机器人根目录下中<code>.env.dev</code>文件中填入</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">CHATGPT_SESSION_TOKEN</span>=<span class="hljs-string">&quot;XXX&quot;</span> <span class="hljs-comment"># token信息</span><br><span class="hljs-attr">CHATGPT_COMMAND</span>=<span class="hljs-string">&quot;chat&quot;</span>			<span class="hljs-comment"># 触发聊天的命令</span><br><span class="hljs-attr">CHATGPT_TO_ME</span>=<span class="hljs-string">&quot;False&quot;</span>				<span class="hljs-comment"># 是否需要@机器人</span><br></code></pre></td></tr></table></figure>
+<p>最后文件显示如下：</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133037973.png" srcset="/img/loading.gif" lazyload alt="image-20221208133037973"></p>
+<p>启动bot使用<code>nb run</code>命令，可以在输出信息中查看我们的插件是否被加载.</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143447455.png" srcset="/img/loading.gif" lazyload alt="image-20221208143447455"></p>
+<p>最后效果如下</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143538843.png" srcset="/img/loading.gif" lazyload alt="image-20221208143538843"></p>
+<p>关于上文的插件更多的配置可以参考<a target="_blank" rel="noopener" href="https://github.com/A-kirami/nonebot-plugin-chatgpt">仓库链接</a></p>
+<p>更多的插件请参考<a target="_blank" rel="noopener" href="https://v2.nonebot.dev/store">nonebot商店</a></p>
+<h1 id="闲聊群">闲聊群</h1>
+<p>有兴趣的小伙伴可以加入Fabric闲聊群（然而都在玩ChatGPT）群里有配置好的机器人。</p>
+<p>此外群中的机器人并没有使用以上提到的<code>nonebot-plugin-chatgpt</code>插件，而是自己开发的一个多<code>session_token</code>的<code>chatGPT</code>插件，从而满足群中请求量过多导致的API限制问题，如果需要可以自行参考<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/lingyin-bot">仓库中的源码</a>。</p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png" srcset="/img/loading.gif" lazyload alt="image-20221208133611308"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/other/">#other</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>5分钟搭建在QQ群ChatGPT机器人！</div>
+      <div>https://blog.chrisyy.top/qq-chatGPT.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>chrisyy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hello-sui-1.html" title="Sui Move合约开发入门(1)">
+                        <span class="hidden-mobile">Sui Move合约开发入门(1)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"chrisyy2003/chrisyy2003.github.io","repo-id":"R_kgDOISH-pg","category":"评论","category-id":"DIC_kwDOISH-ps4CSepy","theme-light":"light","theme-dark":"dark","mapping":"title","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
