@@ -2,8 +2,8 @@
 layout: post
 title: 5分钟搭建在QQ群ChatGPT机器人！
 date: 2022-12-07 23:35:05
-tags:
-  - other
+categories:
+    - other
 ---
 
 《人工智能》
