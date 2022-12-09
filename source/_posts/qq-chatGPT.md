@@ -104,13 +104,18 @@ source venv/bin/activate
 
 ```
  pip3 install nb-cli
- nb
+ pip3 install nonebot-adapter-onebot # 安装适配器
+ nb # 生成bot文件
  nb run
 ```
 
+![image-20221209140937584](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png)
+
+**请注意在adapter这里选择OneBot V11适配器**，最后选择完结果如下。
+
 ![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
 
-至此Bot已经基本配置成功，并且安装了一个最简单的echo插件（可选的），可以使用`/echo`命令让其输出一些信息
+至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），可以使用`/echo`命令让其输出一些信息
 
 ![image-20221208142819097](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png)
 
