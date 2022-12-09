@@ -6,7 +6,7 @@ categories:
     - other
 ---
 
-# 预先配置
+# 前言
 
 本文将带来快速简单在QQ群中接入ChatGPT的教程。
 
@@ -16,9 +16,11 @@ categories:
 2. 安装nonebot框架
 3. 安装chatGPT插件
 
-其中**go-cqhttp**是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqhttp只是其中的一种，还有其他的框架例如：[go-cqhttp](https://link.zhihu.com/?target=https%3A//github.com/Mrs4s/go-cqhttp)，[Mirai](https://link.zhihu.com/?target=https%3A//github.com/mamoe/mirai)等等。它们都解析了QQ协议，使用自己的语言实现了统一的接口，所以可以直白的理解为它们是模拟的一个QQ客户端。
+这里简单说一下各个部分的作用：
 
-第二部分是安装框架，第一步的作用是模拟QQ客户端与QQ服务器进行交流，那么第二部分就是接受这些客户端的消息，封装这些**发送消息的API接口**，便于我们在**不同的编程语言**中调用，而nonebot则是一个使用python语言实现的机器人框架，基于其他语言的框架也有很多，例如TypeScript语言实现的[koishi](https://link.zhihu.com/?target=https%3A//github.com/koishijs/koishi) 框架等等。
+-   **go-cqhttp**是基于Onebot协议的一个golang语言的实现。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqhttp只是其中的一种，还有其他的框架例如：[go-cqhttp](https://link.zhihu.com/?target=https%3A//github.com/Mrs4s/go-cqhttp)，[Mirai](https://link.zhihu.com/?target=https%3A//github.com/mamoe/mirai)等等。它们都解析了QQ协议，使用自己的语言实现了统一的接口，**所以可以直白的理解为它们是模拟的一个QQ客户端。**
+    此外采用的协议通常是不是手机或者电脑端，**所以登陆cqhttp并不会被挤下去（但是可能接受消息会收到影响）**。
+-   第二部分是安装框架，第一步的作用是模拟QQ客户端与QQ服务器进行交流，那么第二部分就是接受这些客户端的消息，并封装这些**发送消息的API接口**，便于我们在**不同的编程语言**中调用。[nonebot](https://v2.nonebot.dev/)则是一个使用python语言实现的机器人框架，同时基于其他语言的框架也有很多，例如TypeScript语言实现的[koishi](https://link.zhihu.com/?target=https%3A//github.com/koishijs/koishi) 框架等等。
 
 最后一部分安装自定义插件，这一部分则是是我们真正需要编写的**机器人的逻辑**，如果需要编写插件则需要学习编程语言，但是如果只是使用别人的插件，**则几行命令就可以搞定**。
 
@@ -106,7 +108,6 @@ source venv/bin/activate
  pip3 install nb-cli
  pip3 install nonebot-adapter-onebot # 安装适配器
  nb # 生成bot文件
- nb run
 ```
 
 ![image-20221209140937584](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png)
@@ -115,7 +116,13 @@ source venv/bin/activate
 
 ![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
 
-至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），可以使用`/echo`命令让其输出一些信息
+至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），随后使用`nb run`启动bot或者使用python3 bot来启动
+
+```
+ nb run #启动bot
+```
+
+要与机器人互动，可以首先使用`/echo`命令让其输出一些信息，斜杠`/`是nonebot默认的命令起始符号，可以自定义设置。
 
 ![image-20221208142819097](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png)
 
