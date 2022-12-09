@@ -18,12 +18,12 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="预先配置 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  其中go-cqhttp是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqh">
+    <meta name="description" content="前言 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  这里简单说一下各个部分的作用：  go-cqhttp是基于Onebot协议的一个golang语言的实现。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5分钟在QQ群搭建ChatGPT机器人！">
 <meta property="og:url" content="https://blog.chrisyy.top/qq-chatGPT.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="预先配置 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  其中go-cqhttp是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqh">
+<meta property="og:description" content="前言 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  这里简单说一下各个部分的作用：  go-cqhttp是基于Onebot协议的一个golang语言的实现。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208094303224.png">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208162320883.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
 <meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
-<meta property="article:modified_time" content="2022-12-09T06:15:47.558Z">
+<meta property="article:modified_time" content="2022-12-09T07:38:57.866Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -278,7 +278,7 @@
         
         
         
-          23 分钟
+          24 分钟
         
       </span>
     
@@ -329,7 +329,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="预先配置">预先配置</h1>
+                <h1 id="前言">前言</h1>
 <p>本文将带来快速简单在QQ群中接入ChatGPT的教程。</p>
 <p>接入ChatGPT的安装步骤仅需三步，其中分别是：</p>
 <ol>
@@ -337,8 +337,12 @@
 <li>安装nonebot框架</li>
 <li>安装chatGPT插件</li>
 </ol>
-<p>其中<strong>go-cqhttp</strong>是基于onebot协议的一个golang语言的实现，。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqhttp只是其中的一种，还有其他的框架例如：<a href="https://link.zhihu.com/?target=https%3A//github.com/Mrs4s/go-cqhttp">go-cqhttp</a>，<a href="https://link.zhihu.com/?target=https%3A//github.com/mamoe/mirai">Mirai</a>等等。它们都解析了QQ协议，使用自己的语言实现了统一的接口，所以可以直白的理解为它们是模拟的一个QQ客户端。</p>
-<p>第二部分是安装框架，第一步的作用是模拟QQ客户端与QQ服务器进行交流，那么第二部分就是接受这些客户端的消息，封装这些<strong>发送消息的API接口</strong>，便于我们在<strong>不同的编程语言</strong>中调用，而nonebot则是一个使用python语言实现的机器人框架，基于其他语言的框架也有很多，例如TypeScript语言实现的<a href="https://link.zhihu.com/?target=https%3A//github.com/koishijs/koishi">koishi</a> 框架等等。</p>
+<p>这里简单说一下各个部分的作用：</p>
+<ul>
+<li><strong>go-cqhttp</strong>是基于Onebot协议的一个golang语言的实现。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的框架有很多，go-cqhttp只是其中的一种，还有其他的框架例如：<a href="https://link.zhihu.com/?target=https%3A//github.com/Mrs4s/go-cqhttp">go-cqhttp</a>，<a href="https://link.zhihu.com/?target=https%3A//github.com/mamoe/mirai">Mirai</a>等等。它们都解析了QQ协议，使用自己的语言实现了统一的接口，<strong>所以可以直白的理解为它们是模拟的一个QQ客户端。</strong><br>
+此外采用的协议通常是不是手机或者电脑端，<strong>所以登陆cqhttp并不会被挤下去（但是可能接受消息会收到影响）</strong>。</li>
+<li>第二部分是安装框架，第一步的作用是模拟QQ客户端与QQ服务器进行交流，那么第二部分就是接受这些客户端的消息，并封装这些<strong>发送消息的API接口</strong>，便于我们在<strong>不同的编程语言</strong>中调用。<a target="_blank" rel="noopener" href="https://v2.nonebot.dev/">nonebot</a>则是一个使用python语言实现的机器人框架，同时基于其他语言的框架也有很多，例如TypeScript语言实现的<a href="https://link.zhihu.com/?target=https%3A//github.com/koishijs/koishi">koishi</a> 框架等等。</li>
+</ul>
 <p>最后一部分安装自定义插件，这一部分则是是我们真正需要编写的<strong>机器人的逻辑</strong>，如果需要编写插件则需要学习编程语言，但是如果只是使用别人的插件，<strong>则几行命令就可以搞定</strong>。</p>
 <p>所以整个架构大体可以如下图所示</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png" srcset="/img/loading.gif" lazyload alt="image-20221208150026750"></p>
@@ -433,11 +437,13 @@
 <p>如果报错请查一下相关资料，如果加载成功可以看到命令行前带有<strong>venv提示符</strong>：</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png" srcset="/img/loading.gif" lazyload alt="image-20221208142423327"></p>
 <p>随后使用pip3安装nonebot脚手架，并通过nb命令创建bot代码，通过<code>nb run</code>运行bot具体可以参考<a target="_blank" rel="noopener" href="https://v2.nonebot.dev/docs/start/installation">nonebot</a>文档</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip3 <span class="hljs-keyword">install</span> nb-cli<br>pip3 <span class="hljs-keyword">install</span> nonebot-adapter-onebot <span class="hljs-comment"># 安装适配器</span><br>nb <span class="hljs-comment"># 生成bot文件</span><br>nb run<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip3 <span class="hljs-keyword">install</span> nb-cli<br>pip3 <span class="hljs-keyword">install</span> nonebot-adapter-onebot <span class="hljs-comment"># 安装适配器</span><br>nb <span class="hljs-comment"># 生成bot文件</span><br></code></pre></td></tr></table></figure>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png" srcset="/img/loading.gif" lazyload alt="image-20221209140937584"></p>
 <p><strong>请注意在adapter这里选择OneBot V11适配器</strong>，最后选择完结果如下。</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png" srcset="/img/loading.gif" lazyload alt="image-20221208125102633"></p>
-<p>至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），可以使用<code>/echo</code>命令让其输出一些信息</p>
+<p>至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），随后使用<code>nb run</code>启动bot或者使用python3 bot来启动</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">nb <span class="hljs-built_in">run</span> <span class="hljs-comment">#启动bot</span><br></code></pre></td></tr></table></figure>
+<p>要与机器人互动，可以首先使用<code>/echo</code>命令让其输出一些信息，斜杠<code>/</code>是nonebot默认的命令起始符号，可以自定义设置。</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png" srcset="/img/loading.gif" lazyload alt="image-20221208142819097"></p>
 <h1 id="安装插件">安装插件</h1>
 <p>最后一步安装我们自定的插件，使用nb直接安装</p>
