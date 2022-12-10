@@ -36,7 +36,7 @@ categories:
 
 ![image-20221208094303224](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208094303224.png)
 
-这里我保存了最常用的系统（Linux，MacOS，Windows 64位）对应的文件，可以[直接下载](http://file.chrisyy.top/go-cqhttp-all.zip)。
+这里我保存了最常用的系统（Linux，MacOS，Windows 64位）对应的文件，可以[直接下载](https://file.chrisyy.top/go-cqhttp-all.zip)。
 
 系统类型对应更详细的说明：
 
