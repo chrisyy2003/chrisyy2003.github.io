@@ -168,12 +168,20 @@ command_start=[""]
 
 更多的插件请参考[nonebot商店](https://v2.nonebot.dev/store)
 
-
-
 # 闲聊群
 
 有兴趣的小伙伴可以加入Fabric闲聊群（然而都在玩ChatGPT）群里有配置好的机器人。
 
-此外群中的机器人并没有使用以上提到的`nonebot-plugin-chatgpt`插件，而是自己开发的一个多`session_token`的`chatGPT`插件，从而满足群中请求量过多导致的API限制问题，如果需要可以自行参考[仓库中的源码](https://github.com/chrisyy2003/lingyin-bot)。
+此外群中的机器人并没有使用以上提到的`nonebot-plugin-chatgpt`插件，而是自己开发的一个多`session_token`的`chatGPT`插件，从而满足群中请求量过多导致的API限制问题，使用一下命令安装
+
+```
+pip3 install nonebot-plugin-multi-chatgpt==1.0.0
+```
+
+随后在`bot.py`中加上如下代码，加载插件，具体方式请查看[lingyin-bot](https://github.com/chrisyy2003/lingyin-bot)的源码和配置文件。
+
+```
+nonebot.load_plugin('nonebot_plugin_multi_chatgpt')
+```
 
 ![image-20221208133611308](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png)
