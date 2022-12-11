@@ -70,7 +70,7 @@ categories:
 
 下载完成之后，在Windows下请使用自己熟悉的解压软件自行解压 ，Linux下在命令行中输入 `tar -xzvf [文件名]`进行解压。
 
-在Windows 中双击`go-cqhttp_*.exe`，根据提示生成运行脚本，随后根据提示操作即可。
+在Windows 中**双击打开`go-cqhttp_*.exe`**，根据提示生成运行脚本，随后根据提示操作即可。
 
 在Linux系统中，输入 `./go-cqhttp`, `Enter`运行。
 
@@ -123,7 +123,8 @@ source venv/bin/activate
 
 ![image-20221209140937584](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png)
 
-**请注意在adapter这里【使用空格！！！！】来选择OneBot V11适配器**，最后选择完结果如下。
+**请注意！！请注意！！请注意！！**
+**在adapter这里【使用空格】来选择OneBot V11适配器**，最后选择完结果如下。
 
 ![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
 
@@ -186,13 +187,19 @@ command_start=[""]
 此外群中的机器人并没有使用以上提到的`nonebot-plugin-chatgpt`插件，而是自己开发的一个多`session_token`的`chatGPT`插件，从而满足群中请求量过多导致的API限制问题，使用一下命令安装
 
 ```
-pip3 install nonebot-plugin-multi-chatgpt==1.0.0
+pip3 install nonebot-plugin-multi-chatgpt --upgrade
 ```
 
-随后在`bot.py`中加上如下代码，加载插件，具体方式请查看[lingyin-bot](https://github.com/chrisyy2003/lingyin-bot)的源码和配置文件。
+随后在`bot.py`中加上如下代码，加载插件
 
 ```
 nonebot.load_plugin('nonebot_plugin_multi_chatgpt')
 ```
+
+具体配置方法请查[lingyin-bot中的[配置文件](https://github.com/chrisyy2003/lingyin-bot/blob/main/.env.dev#L11-L24)示例，和[插件主页](https://github.com/chrisyy2003/lingyin-bot/tree/main/plugins/chatGPT)
+
+![image-20221211235728170](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221211235728170.png)
+
+## 闲聊群
 
 ![image-20221208133611308](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png)
