@@ -123,7 +123,7 @@ source venv/bin/activate
 
 ![image-20221209140937584](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png)
 
-**请注意在adapter这里选择OneBot V11适配器**，最后选择完结果如下。
+**请注意在adapter这里【使用空格！！！！】来选择OneBot V11适配器**，最后选择完结果如下。
 
 ![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
 
