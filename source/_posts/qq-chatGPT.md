@@ -168,7 +168,7 @@ command_start=[""]
 
 更多的插件请参考[nonebot商店](https://v2.nonebot.dev/store)
 
-# 闲聊群
+# 多账号插件
 
 有兴趣的小伙伴可以加入Fabric闲聊群（然而都在玩ChatGPT）群里有配置好的机器人。
 
