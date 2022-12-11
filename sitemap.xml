@@ -83,13 +83,6 @@
   </url>
   
   <url>
-    <loc>https://blog.chrisyy.top/categories/blockchain/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.chrisyy.top/categories/writeup/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -98,6 +91,13 @@
   
   <url>
     <loc>https://blog.chrisyy.top/categories/other/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chrisyy.top/categories/blockchain/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
