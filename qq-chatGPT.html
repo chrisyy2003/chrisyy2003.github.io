@@ -18,12 +18,12 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="前言 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  这里简单说一下各个部分的作用：  go-cqhttp是基于Onebot协议的一个golang语言的实现。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的">
+    <meta name="description" content="存在的问题 可以直接看这里排查是否存在问题  websocket bad handshake 请查看是否配置了v11适配器，在视频6：19秒处 发送指令没有回复 nonebot默认指令需要在前面加一个&#x2F;斜杠来触发，请查看文章最后  前言 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装cha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5分钟在QQ群搭建ChatGPT机器人！">
 <meta property="og:url" content="https://blog.chrisyy.top/qq-chatGPT.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="前言 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装chatGPT插件  这里简单说一下各个部分的作用：  go-cqhttp是基于Onebot协议的一个golang语言的实现。OneBot 是一个聊天机器人应用接口标准，旨在统一不同聊天平台上的机器人应用开发接口。实现了OneBot标准的">
+<meta property="og:description" content="存在的问题 可以直接看这里排查是否存在问题  websocket bad handshake 请查看是否配置了v11适配器，在视频6：19秒处 发送指令没有回复 nonebot默认指令需要在前面加一个&#x2F;斜杠来触发，请查看文章最后  前言 本文将带来快速简单在QQ群中接入ChatGPT的教程。 接入ChatGPT的安装步骤仅需三步，其中分别是：  安装cqhttp 安装nonebot框架 安装cha">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208094303224.png">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208162320883.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
 <meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
-<meta property="article:modified_time" content="2022-12-11T06:12:42.797Z">
+<meta property="article:modified_time" content="2022-12-11T06:20:37.404Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -278,7 +278,7 @@
         
         
         
-          25 分钟
+          26 分钟
         
       </span>
     
@@ -329,7 +329,15 @@
             
               <div class="markdown-body">
                 
-                <h1 id="前言">前言</h1>
+                <h1 id="存在的问题">存在的问题</h1>
+<p>可以直接看这里排查是否存在问题</p>
+<ol>
+<li>websocket bad handshake<br>
+请查看是否配置了v11适配器，在视频6：19秒处</li>
+<li>发送指令没有回复<br>
+nonebot默认指令需要在前面加一个<code>/</code>斜杠来触发，请查看文章最后</li>
+</ol>
+<h1 id="前言">前言</h1>
 <p>本文将带来快速简单在QQ群中接入ChatGPT的教程。</p>
 <p>接入ChatGPT的安装步骤仅需三步，其中分别是：</p>
 <ol>
