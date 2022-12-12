@@ -17,7 +17,11 @@ categories:
 
 随后配置修改为如下：
 
-然后在https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9修改为自己的token和cf cookie值
+然后在https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9修改为自己的token和cf cookie值和user agent值
+
+User-agent的值看这个图
+
+![image-20221212123411066](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123411066.png)
 
 随后运行[test.py](https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py)文件（test文件同样也要修改，这是来检查你的信息能够正确的请求），如果test能跑过那么根据bot[主页](https://github.com/chrisyy2003/lingyin-bot)的说明安装bot就也能跑了
 
@@ -25,7 +29,9 @@ categories:
 
 ![image-20221212103356692](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
 
+test.py能运行就配置bot的env.dev就可以了，像这样
 
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
 
 # 存在的问题
 
