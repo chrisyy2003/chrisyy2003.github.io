@@ -6,7 +6,9 @@ categories:
     - other
 ---
 
-# openai上了Cloudflare临时解决方案
+# ~~openai上了Cloudflare临时解决方案~~
+
+（群友反馈暂时不行了，有问题请查看revChatGPT仓库最新commit进行解决）
 
 ## 安装打包的bot
 
