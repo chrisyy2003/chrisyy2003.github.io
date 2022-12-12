@@ -14,6 +14,8 @@ categories:
 
 可以等等，开发者正在解决问题中，有问题请查看revChatGPT仓库最新commit进行解决。
 
+加discord关注最新进展，https://discord.gg/RvBkdcYUrH
+
 ## 安装步骤
 
 1.  首先下载lingyin-bot文件，或者clone
