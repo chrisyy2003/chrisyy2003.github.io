@@ -21,7 +21,7 @@ categories:
 
 ![image-20221212124926694](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212124926694.png)
 
-然后在https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9修改为自己的token和cf cookie值和user agent值
+然后在 https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9 修改为自己的token和cf cookie值和user agent值
 
 随后运行[test.py](https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py)文件，这是来检查你的信息能够正确的请求，如果test能跑过那么根据bot[主页](https://github.com/chrisyy2003/lingyin-bot)的说明安装后，bot就也能跑了
 
@@ -30,6 +30,8 @@ categories:
 ![image-20221212103356692](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
 
 test.py能运行的话，然后配置bot的env.dev就可以了，像这样
+
+**！！！！需要注意的是**，**并且获取的cf和bot必须是同一台设备**，就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的
 
 ![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
 
