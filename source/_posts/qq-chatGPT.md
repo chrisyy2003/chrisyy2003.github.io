@@ -8,6 +8,16 @@ categories:
 
 # openai上了Cloudflare临时解决方案
 
+## 1.安装打包的bot
+
+首先更新revchatGPT，`pip3 install revChatGPT --upgrade`
+
+然后在https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9修改为自己的token和cf cookie值
+
+随后运行test.py文件，如果test能跑过那么根据bot[主页](https://github.com/chrisyy2003/lingyin-bot)的说明安装bot就也能跑了
+
+## 2.自己修改插件
+
 1.  更新revchatGPT，`pip3 install revChatGPT --upgrade`
 2.  复制图中的cf_clearance的值
     ![image-20221212103154911](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103154911.png)
