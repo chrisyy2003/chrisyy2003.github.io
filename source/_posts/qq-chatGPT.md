@@ -8,7 +8,7 @@ categories:
 
 # ~~openai上了Cloudflare临时解决方案~~
 
-（群友反馈暂时不行了，有问题请查看revChatGPT仓库最新commit进行解决）
+（寄了，群友反馈限制比较大，方案有概率可以，但是调用次数过多就寄，暂时不推荐此方案了。可以等等，开发者正在解决问题中，有问题请查看revChatGPT仓库最新commit进行解决）
 
 ## 安装打包的bot
 
