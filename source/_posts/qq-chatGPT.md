@@ -29,9 +29,13 @@ categories:
 
 ![image-20221212103356692](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
 
-test.py能运行的话，然后配置bot的env.dev就可以了，像这样
+如果遇见下面的问题
 
-**！！！！需要注意的是**，**并且获取的cf和bot必须是同一台设备**，就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的
+![image-20221212150847725](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212150847725.png)
+
+**请确保获取的cf的设备和bot是同一台设备！！！**就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的
+
+test能过之后就配置bot的env.dev如下图
 
 ![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
 
