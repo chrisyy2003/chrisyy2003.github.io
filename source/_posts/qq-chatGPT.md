@@ -6,6 +6,25 @@ categories:
     - other
 ---
 
+# openai上了Cloudflare临时解决方案
+
+1.  更新revchatGPT，`pip3 install revChatGPT --upgrade`
+2.  复制图中的cf_clearance的值
+    ![image-20221212103154911](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103154911.png)
+3.  随后配置修改为如下：
+
+```
+{
+  "session_token": "<YOUR_TOKEN>",
+  "cf_clearance": "<CLOUDFLARE_TOKEN>",
+  "user_agent": "<USER_AGENT>"
+}
+```
+
+最后效果如何
+
+![image-20221212103356692](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
+
 # 存在的问题
 
 可以直接看这里排查是否存在问题
