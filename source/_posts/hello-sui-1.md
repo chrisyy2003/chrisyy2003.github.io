@@ -244,7 +244,7 @@ sui move build
 Sui中的发布命令`publish`要求我们指定用户定义包所在的目录。同时需要设置gas消耗一个上限，我们使用 1000 作为我们的 gas 预算，所以通过如下命令来发布我们的合约。更多的命令请参阅 [Sui CLI 客户端文档。](https://docs.sui.io/build/cli-client)
 
 ```
-sui client publish --path . --gas-budget 1000
+sui client publish --gas-budget 10000
 ```
 
 发布时，Sui还会再次编译，随后会返回交易哈希，发布结果，交易结果等等。这些信息可以通过交易哈希在[区块浏览器](https://explorer.sui.io/transactions/M7SLyxPpt2kXi0idQ4ANNAYg3pw3BfulZhEf9z3L%2F0w%3D)上找到。

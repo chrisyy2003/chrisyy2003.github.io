@@ -6,6 +6,8 @@ categories:
     - other
 ---
 
+
+
 # 12月13日更新
 
 现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试
@@ -35,7 +37,14 @@ res = chatbot.get_chat_response("hello")
 print(res)
 ```
 
-会弹出浏览器自动获取cf值，能够跑过下面bot也能用。
+会弹出浏览器自动获取cf值，能够跑过接下来：
+
+1.  直接安装lingyin-bot
+2.  配置env.dev
+
+安装方式在主页。（因为这个集成的bot直接依赖这个库的，所以test.py可以，bot就可以）
+
+
 
 # ~~openai上了Cloudflare临时解决方案~~
 
