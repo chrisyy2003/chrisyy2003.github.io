@@ -6,6 +6,37 @@ categories:
     - other
 ---
 
+# 12月13日更新
+
+现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试
+
+在桌面环境中：`pip3 install revChatGPT==0.0.42.1` 安装最新版的revChatGPT，此外还需要安装谷歌浏览器
+
+随后在test.py文件中【**只**】配置session_token，像下面这样。
+
+```
+{
+  "session_token": "<YOUR_TOKEN>",
+}
+```
+
+最后test文件如下
+
+```
+from revChatGPT.revChatGPT import Chatbot
+
+config = {
+    "session_token": "XX", ##token
+    "proxy": "http://127.0.0.1:6152"
+}
+chatbot = Chatbot(config, conversation_id=None)
+
+res = chatbot.get_chat_response("hello")
+print(res)
+```
+
+会弹出浏览器自动获取cf值，能够跑过下面bot也能用。
+
 # ~~openai上了Cloudflare临时解决方案~~
 
 目前情况是寄了，暂时还没有一个很好的解决办法。
