@@ -177,6 +177,14 @@ dynamic_field和dynamic_object_field的区别 类似的table和object_table，ba
 
 测试框架
 
+
+
+```
+public fun begin(sender: address): Scenario
+```
+
+
+
 4.	.   
 
 
