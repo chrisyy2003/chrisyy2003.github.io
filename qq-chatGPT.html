@@ -18,12 +18,12 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="12月13日更新 现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试 在桌面环境中：pip3 install revChatGPT&#x3D;&#x3D;0.0.42.1 安装最新版的revChatGPT，此外还需要安装谷歌浏览器 随后在test.py文件中【只】配置session_token，像下面这样。 123&amp;#123;  &quot;session_token">
+    <meta name="description" content="12月13日更新  现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。   在桌面环境中：pip3 install revChatGPT&#x3D;&#x3D;0.0.42.1 安装最新版的revChatGPT，此外还需要安装谷歌浏览器 随后在test.py文件中【只】配置session_token，像下面这样。  123&amp;#123;  &quot;session_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5分钟在QQ群搭建ChatGPT机器人！">
 <meta property="og:url" content="https://blog.chrisyy.top/qq-chatGPT.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="12月13日更新 现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试 在桌面环境中：pip3 install revChatGPT&#x3D;&#x3D;0.0.42.1 安装最新版的revChatGPT，此外还需要安装谷歌浏览器 随后在test.py文件中【只】配置session_token，像下面这样。 123&amp;#123;  &quot;session_token">
+<meta property="og:description" content="12月13日更新  现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。   在桌面环境中：pip3 install revChatGPT&#x3D;&#x3D;0.0.42.1 安装最新版的revChatGPT，此外还需要安装谷歌浏览器 随后在test.py文件中【只】配置session_token，像下面这样。  123&amp;#123;  &quot;session_">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212171748432.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103154911.png">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221211235728170.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
 <meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
-<meta property="article:modified_time" content="2022-12-13T12:01:49.853Z">
+<meta property="article:modified_time" content="2022-12-13T12:03:38.325Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -337,13 +337,17 @@
               <div class="markdown-body">
                 
                 <h1 id="12月13日更新">12月13日更新</h1>
-<p>现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试</p>
-<p>在桌面环境中：<code>pip3 install revChatGPT==0.0.42.1</code> 安装最新版的revChatGPT，此外还需要安装谷歌浏览器</p>
-<p>随后在test.py文件中【<strong>只</strong>】配置session_token，像下面这样。</p>
+<blockquote>
+<p>现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。</p>
+</blockquote>
+<ol>
+<li>在桌面环境中：<code>pip3 install revChatGPT==0.0.42.1</code> 安装最新版的revChatGPT，此外还需要安装谷歌浏览器</li>
+<li>随后在test.py文件中【<strong>只</strong>】配置session_token，像下面这样。</li>
+</ol>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;session_token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&lt;YOUR_TOKEN&gt;&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 <p>最后test文件如下</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stylus">from revChatGPT<span class="hljs-selector-class">.revChatGPT</span> import Chatbot<br><br>config = &#123;<br>    <span class="hljs-string">&quot;session_token&quot;</span>: <span class="hljs-string">&quot;XX&quot;</span>, #<span class="hljs-selector-id">#token</span><br>    <span class="hljs-string">&quot;proxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:6152&quot;</span><br>&#125;<br>chatbot = <span class="hljs-built_in">Chatbot</span>(config, conversation_id=None)<br><br>res = chatbot<span class="hljs-selector-class">.get_chat_response</span>(<span class="hljs-string">&quot;hello&quot;</span>)<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(res)</span></span><br></code></pre></td></tr></table></figure>
-<p>会弹出浏览器自动获取cf值，能够跑过接下来：</p>
+<p>程序会弹出浏览器自动获取cf值，能够跑过的话接下来：</p>
 <ol>
 <li>直接安装lingyin-bot</li>
 <li>配置env.dev</li>
