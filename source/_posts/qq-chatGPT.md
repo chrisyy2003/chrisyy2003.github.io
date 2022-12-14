@@ -8,7 +8,9 @@ categories:
 
 
 
->   说明：问题在于插件出现问题后不能及时更新，所以文章中插件部分可能会**出现过时问题导致不能用的情况**。但是cqhttp和nonebot的安装教程不会有问题，**所以依然可以作为参考进行安装**。
+>   说明：问题在于插件出现问题后不能及时更新，所以文章中插件部分可能会**出现过时问题导致不能用的情况**。但是cqhttp和nonebot**部分的安装教程不会有问题**，**所以依然可以作为参考进行安装**。
+>
+>   有问题的都是针对插件。
 
 # 12月13日更新
 
@@ -171,12 +173,24 @@ cqhttp启动时会读取当前目录下是否有`config.yml`文件，如果有�
 
 第二部安装NoneBot框架，这一步建议使用python中虚拟环境进行安装，并确保python版本在3.8以上。
 
+>   windows中可能不是用python3，而是直接用python，没有生成venv文件夹请看python指令是否正确
+
 使用venv创建一个虚拟环境，并使用souce加载环境
 
 ```
 python3 --version 查看版本
 python3 -m venv venv
 source venv/bin/activate
+```
+
+**windows下请直接在命令行启动activate例如**
+
+```
+// powershell
+./activate.ps1
+
+// cmd命令行
+./activate.bat
 ```
 
 如果报错请查一下相关资料，如果加载成功可以看到命令行前带有**venv提示符**：
