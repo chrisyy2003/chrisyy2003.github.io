@@ -18,12 +18,12 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="说明：问题在于插件出现问题后不能及时更新，所以文章中插件部分可能会出现过时问题导致不能用的情况。但是cqhttp和nonebot部分的安装教程不会有问题，所以依然可以作为参考进行安装。 有问题的都是针对插件。  12月13日更新  现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。   在桌面环境中：pip3 install revChatGP">
+    <meta name="description" content="说明：问题在于chatgpt插件出现问题后不能及时更新，所以文章中插件部分可能会出现过时问题导致不能用的情况。但是cqhttp和nonebot部分的安装教程不会有问题，所以依然可以作为参考进行安装。 有问题的都是针对插件。 此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。  12月13日更新  现在在有GUI（图形界面）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5分钟在QQ群搭建ChatGPT机器人！">
 <meta property="og:url" content="https://blog.chrisyy.top/qq-chatGPT.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="说明：问题在于插件出现问题后不能及时更新，所以文章中插件部分可能会出现过时问题导致不能用的情况。但是cqhttp和nonebot部分的安装教程不会有问题，所以依然可以作为参考进行安装。 有问题的都是针对插件。  12月13日更新  现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。   在桌面环境中：pip3 install revChatGP">
+<meta property="og:description" content="说明：问题在于chatgpt插件出现问题后不能及时更新，所以文章中插件部分可能会出现过时问题导致不能用的情况。但是cqhttp和nonebot部分的安装教程不会有问题，所以依然可以作为参考进行安装。 有问题的都是针对插件。 此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。  12月13日更新  现在在有GUI（图形界面）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212171748432.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103154911.png">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221211235728170.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
 <meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
-<meta property="article:modified_time" content="2022-12-14T02:44:40.576Z">
+<meta property="article:modified_time" content="2022-12-14T02:56:00.515Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -337,8 +337,9 @@
               <div class="markdown-body">
                 
                 <blockquote>
-<p>说明：问题在于插件出现问题后不能及时更新，所以文章中插件部分可能会<strong>出现过时问题导致不能用的情况</strong>。但是cqhttp和nonebot<strong>部分的安装教程不会有问题</strong>，<strong>所以依然可以作为参考进行安装</strong>。</p>
+<p>说明：问题在于chatgpt插件出现问题后不能及时更新，所以文章中插件部分可能会<strong>出现过时问题导致不能用的情况</strong>。但是cqhttp和nonebot<strong>部分的安装教程不会有问题</strong>，<strong>所以依然可以作为参考进行安装</strong>。</p>
 <p>有问题的都是针对插件。</p>
+<p>此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。</p>
 </blockquote>
 <h1 id="12月13日更新">12月13日更新</h1>
 <blockquote>
@@ -357,7 +358,7 @@
 <li>配置env.dev</li>
 </ol>
 <p>安装方式在主页。（因为这个集成的bot直接依赖这个库的，所以test.py可以，bot就可以）</p>
-<h1 id="openai上了Cloudflare临时解决方案"><s>openai上了Cloudflare临时解决方案</s></h1>
+<h1 id="openai上了Cloudflare的临时解决方案"><s>openai上了Cloudflare的临时解决方案</s></h1>
 <p>目前情况是寄了，暂时还没有一个很好的解决办法。</p>
 <p><strong>此方案是可以成功的但是非常麻烦</strong>，群友反馈结果是限制比较大，<strong>需要手动换cf字段值并且cf有效时间只有2小时</strong>，而且调用次数过多就寄，暂时不推荐此方案了。</p>
 <p>可以等等，开发者正在解决问题中，有问题请查看revChatGPT仓库最新commit进行解决。</p>
@@ -492,7 +493,8 @@ nonebot默认指令需要在前面加一个<code>/</code>斜杠来触发，请�
 <h1 id="安装NoneBot">安装NoneBot</h1>
 <p>第二部安装NoneBot框架，这一步建议使用python中虚拟环境进行安装，并确保python版本在3.8以上。</p>
 <blockquote>
-<p>windows中可能不是用python3，而是直接用python，没有生成venv文件夹请看python指令是否正确</p>
+<p>windows中可能不是用python3，而是直接用python，没有生成venv文件夹请看python指令是否正确。</p>
+<p>同理pip3在windows直接是pip</p>
 </blockquote>
 <p>使用venv创建一个虚拟环境，并使用souce加载环境</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python3</span> --<span class="hljs-keyword">version</span> 查看版本<br><span class="hljs-keyword">python3</span> -<span class="hljs-keyword">m</span> venv venv<br><span class="hljs-keyword">source</span> venv/bin/activate<br></code></pre></td></tr></table></figure>
