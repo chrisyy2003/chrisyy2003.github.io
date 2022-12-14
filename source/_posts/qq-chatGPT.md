@@ -14,6 +14,13 @@ categories:
 >
 >   此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。
 
+# 12月14日更新
+
+1.  文章提到的nonebot-plugin-chatgpt 插件以及合并了绕过cf的方法，可以继续按照本文安装。
+2.  关于群中的多账号bot可以直接通过修改[token.json](https://github.com/chrisyy2003/lingyin-bot/blob/main/chatgpt_token.json)来完成自己的配置。几个账号就放几个token。
+
+这两个方法是不同的，第一个是一个插件，第二个是一个群中专用的集成的bot。
+
 # 12月13日更新
 
 >   现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。

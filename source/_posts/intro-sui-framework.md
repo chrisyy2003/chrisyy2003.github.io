@@ -181,7 +181,39 @@ dynamic_field和dynamic_object_field的区别 类似的table和object_table，ba
 
 ```
 public fun begin(sender: address): Scenario
+
+/// 将场景推进到新交易，其中 `sender` 是交易发送方 
+/// 所有转移的对象将被移动到账户或全局的库存中 
+/// 存货。换句话说，为了访问具有各种“取”之一的对象 
+/// 下面的函数，例如`take_from_address_by_id`，交易必须先通过 
+/// `next_tx`。 
+/// 返回上一次交易的结果 
+/// 如果共享或不可变对象被删除、传输或包装，将中止。 
+/// 如果无法生成 TransactionEffects 将中止
+public fun next_tx(scenario: &mut Scenario, sender: address): TransactionEffects
+
+
+public fun end(scenario: Scenario): TransactionEffects
+
+public fun ctx(scenario: &mut Scenario): &mut TxContext
+
+public fun new_object(scenario: &mut Scenario): UID
+
+public fun created(effects: &TransactionEffects): vector<ID>
+
 ```
+
+
+
+```
+public fun take_from_address<T: key>(scenario: &Scenario, account: address): T
+
+public fun return_to_address<T: key>(account: address, t: T)
+
+
+```
+
+
 
 
 
