@@ -26,7 +26,7 @@
 <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;MystenLabs&#x2F;sui&#x2F;tree&#x2F;main&#x2F;crates&#x2F;sui-framework&#x2F;sources Framework分析 代币  sui  sui平台代币，通过coin模块铸造 1234567891011121314public(friend) fun new(ctx: &amp;mut TxContext): Supply&lt;SUI&gt; &amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-13T07:58:21.000Z">
-<meta property="article:modified_time" content="2022-12-14T02:50:09.053Z">
+<meta property="article:modified_time" content="2022-12-14T03:29:22.425Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -264,7 +264,7 @@
         
         
         
-          33 分钟
+          38 分钟
         
       </span>
     
@@ -383,7 +383,8 @@
 </li>
 </ol>
 <p>测试框架</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">begin</span><span class="hljs-params">(sender: <span class="hljs-type">address</span>)</span></span>: Scenario<br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">begin</span><span class="hljs-params">(sender: <span class="hljs-type">address</span>)</span></span>: Scenario<br><br><span class="hljs-comment">/// 将场景推进到新交易，其中 `sender` 是交易发送方 </span><br><span class="hljs-comment">/// 所有转移的对象将被移动到账户或全局的库存中 </span><br><span class="hljs-comment">/// 存货。换句话说，为了访问具有各种“取”之一的对象 </span><br><span class="hljs-comment">/// 下面的函数，例如`take_from_address_by_id`，交易必须先通过 </span><br><span class="hljs-comment">/// `next_tx`。 </span><br><span class="hljs-comment">/// 返回上一次交易的结果 </span><br><span class="hljs-comment">/// 如果共享或不可变对象被删除、传输或包装，将中止。 </span><br><span class="hljs-comment">/// 如果无法生成 TransactionEffects 将中止</span><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">next_tx</span><span class="hljs-params">(scenario: &amp;<span class="hljs-type">mut</span> <span class="hljs-type">Scenario</span>, sender: <span class="hljs-type">address</span>)</span></span>: TransactionEffects<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">end</span><span class="hljs-params">(scenario: <span class="hljs-type">Scenario</span>)</span></span>: TransactionEffects<br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">ctx</span><span class="hljs-params">(scenario: &amp;<span class="hljs-type">mut</span> <span class="hljs-type">Scenario</span>)</span></span>: &amp;mut TxContext<br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">new_object</span><span class="hljs-params">(scenario: &amp;<span class="hljs-type">mut</span> <span class="hljs-type">Scenario</span>)</span></span>: UID<br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">created</span><span class="hljs-params">(effects: &amp;<span class="hljs-type">TransactionEffects</span>)</span></span>: vector&lt;ID&gt;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> take_from_address<span class="hljs-type">&lt;T: key&gt;</span><span class="hljs-params">(scenario: &amp;<span class="hljs-type">Scenario</span>, account: <span class="hljs-type">address</span>)</span></span>: T<br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> return_to_address<span class="hljs-type">&lt;T: key&gt;</span><span class="hljs-params">(account: <span class="hljs-type">address</span>, t: <span class="hljs-type">T</span>)</span></span><br><br><br></code></pre></td></tr></table></figure>
 <ol start="4">
 <li>.</li>
 </ol>
