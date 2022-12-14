@@ -10,11 +10,11 @@ categories:
 
 # 12月13日更新
 
-现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试
+>   现在在有GUI（图形界面）的机器上可以实现半自动的方法，不过还需要修改插件，有基础的可以自己先试一试。
+>
 
-在桌面环境中：`pip3 install revChatGPT==0.0.42.1` 安装最新版的revChatGPT，此外还需要安装谷歌浏览器
-
-随后在test.py文件中【**只**】配置session_token，像下面这样。
+1.  在桌面环境中：`pip3 install revChatGPT==0.0.42.1` 安装最新版的revChatGPT，此外还需要安装谷歌浏览器
+2.  随后在test.py文件中【**只**】配置session_token，像下面这样。
 
 ```
 {
@@ -37,7 +37,7 @@ res = chatbot.get_chat_response("hello")
 print(res)
 ```
 
-会弹出浏览器自动获取cf值，能够跑过接下来：
+程序会弹出浏览器自动获取cf值，能够跑过的话接下来：
 
 1.  直接安装lingyin-bot
 2.  配置env.dev
