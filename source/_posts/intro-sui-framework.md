@@ -9,6 +9,22 @@ tags:
 
 https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/sources
 
+# sui介绍
+
+头等舱研报： [315-SUI.pdf](../../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/7faed2b9a43bc96e986bb671d11b7e8f/Message/MessageTemp/e218d480fa03dd16c4bdd9546b722041/File/315-SUI.pdf) 
+
+## 架构
+
+![image-20221214141259428](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141259428.png)
+
+每个 Objects 在 Sui 执行环境中都有一个唯一的 ID，并有指向所有者地址的内部指针。通过使用这些概念，很容易通过检查交易是否使用相同的 Objects 来识别关联。
+
+通过将声明关联关系的工作转移给开发者，使执行引擎的实施变得更容易，这意味着理论上它可以有更好的性能和可扩展性。然而，这是以不太理想的开发者体验为代价的。
+
+## Sui Move
+
+![image-20221214141845093](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141845093.png)
+
 # Framework分析
 
 ## 代币
@@ -119,8 +135,6 @@ Balance和Coin的理解：
 
 
 
-
-
 ## NFT
 
 https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/erc721_metadata.move
@@ -152,7 +166,7 @@ bag是一个异构的map集合。该集合类似于 `sui::table` 它的键和值
 
 在它的核心，`sui::bag` 是 `UID` 的包装器，允许访问 `sui::dynamic_field` 同时防止意外搁浅字段值。 `UID` 可以是 删除，即使它有关联的动态字段，但另一方面，包必须是 空的被销毁。
 
-table和bag的区别 table的key和value类型初始化的时候就已经确定了，table只能存储同类型的key和value,。
+**table和bag的区别 table的key和value类型初始化的时候就已经确定了，table只能存储同类型的key和value,。**
 
 bag初始化的时候未限制具体类型，bag能存储不同类型的key和value。
 
@@ -163,21 +177,61 @@ dynamic_field和dynamic_object_field的区别 类似的table和object_table，ba
 
 2.   [table](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/table.move)
 
+3.   [priority_queue](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/priority_queue.move)
+
+使用大根堆实现的优先级队列。
+
 
 
 ## 工具模块
 
 1.	[transfer](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/transfer.move)
 
+```
 
+public fun transfer<T: key>(obj: T, recipient: address)
+native fun transfer_internal<T: key>(obj: T, recipient: address);
 
-1.	[tx_context](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/tx_context.move)
+public native fun freeze_object<T: key>(obj: T);
 
-2.	[test_scenario](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/test_scenario.move)
+public native fun share_object<T: key>(obj: T);
+
+```
+
+2.   [tx_context](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/tx_context.move)
+
+tx结构
+
+```
+struct TxContext has drop {
+        /// The address of the user that signed the current transaction
+        sender: address,
+        /// Hash of the current transaction
+        tx_hash: vector<u8>,
+        /// The current epoch number.
+        epoch: u64,
+        /// Counter recording the number of fresh id's created while executing
+        /// this transaction. Always 0 at the start of a transaction
+        ids_created: u64
+    }
+```
+
+常见有如下的操作函数：
+
+```
+public fun sender(self: &TxContext): address
+
+public(friend) fun new_object(ctx: &mut TxContext): address {
+        let ids_created = ctx.ids_created;
+        let id = derive_id(*&ctx.tx_hash, ids_created);
+        ctx.ids_created = ids_created + 1;
+        id
+    }
+```
+
+3.   [test_scenario](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/test_scenario.move)
 
 测试框架
-
-
 
 ```
 public fun begin(sender: address): Scenario
@@ -192,7 +246,6 @@ public fun begin(sender: address): Scenario
 /// 如果无法生成 TransactionEffects 将中止
 public fun next_tx(scenario: &mut Scenario, sender: address): TransactionEffects
 
-
 public fun end(scenario: Scenario): TransactionEffects
 
 public fun ctx(scenario: &mut Scenario): &mut TxContext
@@ -203,37 +256,88 @@ public fun created(effects: &TransactionEffects): vector<ID>
 
 ```
 
+资源操作
 
-
-```
+```move
 public fun take_from_address<T: key>(scenario: &Scenario, account: address): T
-
 public fun return_to_address<T: key>(account: address, t: T)
 
+public fun take_shared<T: key>(scenario: &Scenario): T
+public fun return_shared<T: key>(t: T)
+```
+
+## 密码学
+
+1.  [bulletproof](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/crypto/bulletproofs.move)
+
+```
+public fun verify_full_range_proof(proof: &vector<u8>, commitment: &RistrettoPoint, bit_length: u64): bool
+```
+
+2.   [groth16](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/crypto/groth16.move)
+
+```
+// groth16 验证算法，参数
+public fun verify_groth16_proof(prepared_verifying_key: &PreparedVerifyingKey, public_proof_inputs: &PublicProofInputs, proof_points: &ProofPoints): bool
+
+// 获取verify key
+public fun pvk_from_bytes(vk_gamma_abc_g1_bytes: vector<u8>, alpha_g1_beta_g2_bytes: vector<u8>, gamma_g2_neg_pc_bytes: vector<u8>, delta_g2_neg_pc_bytes: vector<u8>): PreparedVerifyingKey
 
 ```
 
+# 案例
 
+## hello_move
 
+为了获得一个`Counter`计数器对象并且，使得`Counter`计数器对象中的值增加，我们需要调用合约中的函数。
 
+在函数`getCounter`中，存在`public`，`entry`修饰符，这保证了我们拥有调用权限，并且可以通过命令行调用。`transfer`函数的参数为对象接收者地址，在代码中，我们通过`tx_context::sender(ctx)`来获取发送者地址，`ctx`是当前交易的上下文，包含此交易的相关信息。
 
-4.	.   
+所以我们首先需要调用`getCounter`函数，在命令行输入如下命令。
 
+```
+sui client call \
+    --function getCounter \
+    --module counter \
+    --package 0x31f33e53a2c7a2620fc1bbf8140ffc7bde3984fa \
+    --gas-budget 1000
+```
 
+这是一个相当复杂的命令，所以让我们一一解释它的所有参数：
 
+- `--function`：要调用的函数的名称
+- `--module`：包含函数的模块的名称
+- `--package`：包含函数的模块所在的包对象的 `ID`。
+- `--gas-budge`：是一个十进制数，表示我们交易的gas上限，以避免 gas pay 中所有 gas 的意外耗尽）
 
+可以发现交易结果中返回了一个新创建的对象`ID`，很明显这就是我们获得的`Counter`对象
 
-bsc：
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180338202.png)
 
+同时在浏览器上可以直接通过对象`ID`看到`counter`的`value`字段的具体值
 
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180507340.png)
 
-1.  [priority_queue](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/priority_queue.move)
+最后我们试图调用`incr`来使得`value`的值+1
 
-使用大根堆实现的优先级队列。
+```
+sui client call \
+    --function incr \
+    --module counter \
+    --package 0x31f33e53a2c7a2620fc1bbf8140ffc7bde3984fa \
+    --args 0x846e1db8383dd68373cd83c6ce5242951d7beb77 \
+    --gas-budget 1000
+```
 
+其中`--args`用来传递我们的参数，参数格式参考 [Sui-JSON](https://docs.sui.io/build/sui-json)值的函数参数列表。
 
+再次通过浏览器可以发现version（可以理解为修改的次数）被+1，同时`value`的字段值也成功+1
 
+![image-20221128182935767](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128182935767.png)
 
+## test_example
+
+## token
 
 
 

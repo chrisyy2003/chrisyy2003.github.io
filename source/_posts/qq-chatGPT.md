@@ -14,9 +14,15 @@ categories:
 >
 >   此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。
 
+# 12月15日更新
+
+[revChatGPT](https://github.com/acheong08/ChatGPT/blob/main/src/revChatGPT/revChatGPT.py)仓库已经归档，基于逆向API的bot基本上挂掉了。
+
+推荐使用API的bot，也就是GPT3而不是ChatGPT。
+
 # 12月14日更新
 
-1.  文章提到的nonebot-plugin-chatgpt 插件以及合并了绕过cf的方法，可以继续按照本文安装。
+1.  文章提到的nonebot-plugin-chatgpt 插件以及合并了绕过cf的方法，**可以继续按照本文安装。**
 2.  关于群中的多账号bot可以直接通过修改[token.json](https://github.com/chrisyy2003/lingyin-bot/blob/main/chatgpt_token.json)来完成自己的配置。几个账号就放几个token。
 
 这两个方法是不同的，第一个是一个插件，第二个是一个群中专用的集成的bot。
