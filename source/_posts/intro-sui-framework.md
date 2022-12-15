@@ -127,7 +127,11 @@ public fun into_balance<T>(coin: Coin<T>): Balance<T>
 public fun take<T>(balance: &mut Balance<T>, value: u64, ctx: &mut TxContext): Coin<T>
 ```
 
-Balance和Coin的理解：
+**这里说说我对Balance和Coin区别的理解：**
+
+Balance属于一个相对宽泛的记账概念，Balance表示的是一种记录数量的资产，而Coin是市场上流动的资产形式，Balance可以存在多种类型，例如货币、支票、保险、负债，Coin只是其中的的货币的表现形式，Coin在逻辑上对应的是可分割的代币，它需要一个记账的载体Balance。 所以Balance的用途并不局限于对于Coin的记账，实际上任何需要记账的地方都可以用到Balance。 
+
+Balance保证了最基础的记账逻辑，例如不能无限增发，复制等等，并且Balance没有KEY的能力，所以也不能直接存放在区块链中。
 
 4.   [pay](https://github.com/MystenLabs/sui/blob/main/crates/sui-framework/sources/pay.move)
 
