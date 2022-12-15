@@ -3,14 +3,14 @@ title: 关于
 layout: about
 ---
 
-
-
 2018级信息安全专业，天府街打工人
+
+CTFer in ***crypto**/blockchain/web*
 
 2022.1 @*Beosin*
 
 ------
 
-Dev: ***Golang**/**Python**/JavaScript(ES6)/Vue*
+Dev: ***Golang**/**Python**/JavaScript/Vue*
 Blockchain: *Move/Solidity/Contract Audit*
 <!-- Game: *LoL/Minecraft* -->
