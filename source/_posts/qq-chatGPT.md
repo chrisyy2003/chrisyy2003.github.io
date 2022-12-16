@@ -16,18 +16,25 @@ categories:
 >
 >   
 >
->   **是小白？**如果你是小白的话，只需要关系如何安装插件就可以了，更新内容可以不用看，直接从原教程的[前言](https://blog.chrisyy.top/qq-chatGPT.html#%E5%89%8D%E8%A8%80)开始看就可以了。
+>   是小白？如果你是小白的话，只需要关心如何安装插件就可以了，直接从原教程的[前言](https://blog.chrisyy.top/qq-chatGPT.html#%E5%89%8D%E8%A8%80)开始看就可以了，更新内容可以不用看，
 
 # 遇到问题？
 
-首先可以直接看这里排查是否存在问题
+首先可以直接看这里排查是否存在问题，有问题也可以随时留言。
+
+>   需要提前说明的是，有问题请把问题描述清楚再提问，报错截图也需要把报错信息截图截全然后再发出来提问！
+>
+>   如果只说：救命，我这个怎么回事......没有人会回你的。
 
 1.  websocket bad handshake 
     请查看是否配置了v11适配器，适配器是通过空格选择的，不是enter，在视频6：19秒处。
+
 2.  发送指令没有回复
+
     nonebot默认指令需要在前面加一个`/`斜杠来触发，请查看文章最后。
-3.  Too many... 这种问题请挂代理访问。
-    ![image-20221216225749449](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216225749449.png)
+
+3.  Too many... 这种问题请挂代理访问。因为cf字段是不断刷新的，有ip限制所以只能发一句。
+    ![image-20221216230714181](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216230714181.png)
 
 
 
@@ -92,6 +99,8 @@ print(res)
 
 # ~~Cloudflare的临时解决方案~~
 
+
+
 目前情况是寄了，暂时还没有一个很好的解决办法。
 
 **此方案是可以成功的但是非常麻烦**，群友反馈结果是限制比较大，**需要手动换cf字段值并且cf有效时间只有2小时**，而且调用次数过多就寄，暂时不推荐此方案了。
@@ -111,12 +120,20 @@ print(res)
     ![image-20221212124926694](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212124926694.png)
 5.  然后在 https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9 修改为自己的token和cf cookie值和user agent值， 并随后运行[test.py](https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py)文件，这是来检查你的信息能够正确的请求，如果test能跑过那么根据bot[主页](https://github.com/chrisyy2003/lingyin-bot)的说明安装后，bot就也能跑了。
     跑过指的是能返回如下的有效消息：
-    ![image-20221212103356692](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
-    如果遇见下面的问题
-    ![image-20221212150847725](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212150847725.png)
-    **请确保获取的cf的设备和bot是同一台设备！！！**就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的
-6.  test能过之后就配置bot的env.dev如下图![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
-7.  随后启动bot，启动方法请看lingyin-bot主页
+
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
+
+如果遇见下面的问题 
+
+![image-20221212150847725](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212150847725.png)
+
+**请确保获取的cf的设备和bot是同一台设备！！！**就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的，因为需要ip相同。
+
+7.  test能过之后就配置bot的env.dev如下图
+
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
+
+8.  随后启动bot，启动方法请看lingyin-bot主页
 
 # 前言
 
