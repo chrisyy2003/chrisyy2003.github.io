@@ -200,13 +200,13 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-**windows下请直接在命令行启动activate例如**
+**windows下请直接在命令行启动activate例如，并且activate所在的文件夹在windows下名字可能是script**
 
 ```
-// powershell
+# powershell启动ps1文件
 ./activate.ps1
 
-// cmd命令行
+# cmd命令行启动bat文件
 ./activate.bat
 ```
 
@@ -229,7 +229,21 @@ source venv/bin/activate
 
 ![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
 
-至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），随后使用`nb run`启动bot或者使用python3 bot来启动
+如果你配置成功你的目录应该是如下的形式
+
+```
+.
+├── bot
+│   └── bot.py			# 创建的bot的启动文件
+├── cqhttp
+└── venv
+    ├── bin					# windows下名字可能是script
+    ├── include
+    ├── lib
+    └── pyvenv.cfg
+```
+
+至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），**随后进入刚刚创建的bot文件夹**，使用`nb run`启动bot或者使用python3 bot来启动
 
 ```
  nb run #启动bot
@@ -297,9 +311,7 @@ pip3 install nonebot-plugin-multi-chatgpt --upgrade
 nonebot.load_plugin('nonebot_plugin_multi_chatgpt')
 ```
 
-具体配置方法请查[lingyin-bot中的[配置文件](https://github.com/chrisyy2003/lingyin-bot/blob/main/.env.dev#L11-L24)示例，和[插件主页](https://github.com/chrisyy2003/lingyin-bot/tree/main/plugins/chatGPT)
-
-![image-20221211235728170](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221211235728170.png)
+具体配置方法请查lingyin-bot中的[配置文件](https://github.com/chrisyy2003/lingyin-bot/blob/main/.env.dev#L11-L24)示例，和[插件主页](https://github.com/chrisyy2003/lingyin-bot/tree/main/plugins/chatGPT)
 
 ## 闲聊群
 
