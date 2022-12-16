@@ -14,6 +14,14 @@ categories:
 >
 >   此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。
 
+# 12月16日更新
+
+现在方案已经变为完全的浏览器模拟进行收发消息了。
+
+下方的`nonebot-plugin-chatgpt`插件维护的比较好，**可以继续按照文本安装。**
+
+**不过需要注意的是，在env.dev中的fastapi_reload请设置为false**，**然后需要安装playwright**，具体怎么安装自行查资料。
+
 # 12月15日更新
 
 [revChatGPT](https://github.com/acheong08/ChatGPT/blob/main/src/revChatGPT/revChatGPT.py)仓库已经归档，基于逆向API的bot基本上挂掉了。
@@ -93,14 +101,14 @@ print(res)
 6.  test能过之后就配置bot的env.dev如下图![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
 7.  随后启动bot，启动方法请看lingyin-bot主页
 
-# 存在的问题
+# 遇到问题？
 
 可以直接看这里排查是否存在问题
 
 1.  websocket bad handshake 
-    请查看是否配置了v11适配器，在视频6：19秒处
+    请查看是否配置了v11适配器，适配器是通过空格选择的，不是enter，在视频6：19秒处。
 2.  发送指令没有回复
-    nonebot默认指令需要在前面加一个`/`斜杠来触发，请查看文章最后
+    nonebot默认指令需要在前面加一个`/`斜杠来触发，请查看文章最后。
 
 
 
@@ -296,6 +304,14 @@ command_start=[""]
 更多的插件请参考[nonebot商店](https://v2.nonebot.dev/store)
 
 # 多账号插件
+
+>   12月15日更新：项目源于ChatGPT公测一周的时间内，群中500+人数导致的请求频率问题，从而需要多个Bot分担请求压力。
+>
+>   此项目是直接基于revChatGPT，基于逆向方式插件并不调用API接口，并且API接口也不需要多账号。
+>
+>   目前cloudflare的限制，revChatGPT仓库归档，存在不加代理启动成功之后，只能回复一句话的问题，**所以暂时插件问题比较多，不能保证插件能用。**
+>
+>   （不加代理并基于逆向API的应该都有这个问题）。
 
 有兴趣的小伙伴可以加入Fabric闲聊群（然而都在玩ChatGPT）群里有配置好的机器人。
 
