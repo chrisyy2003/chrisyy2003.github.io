@@ -43,10 +43,9 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143447455.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143538843.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208162320883.png">
-<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221211235728170.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
 <meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
-<meta property="article:modified_time" content="2022-12-15T08:26:16.304Z">
+<meta property="article:modified_time" content="2022-12-16T05:00:42.706Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -285,7 +284,7 @@
         
         
         
-          41 分钟
+          43 分钟
         
       </span>
     
@@ -507,8 +506,8 @@ nonebot默认指令需要在前面加一个<code>/</code>斜杠来触发，请�
 </blockquote>
 <p>使用venv创建一个虚拟环境，并使用souce加载环境</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python3</span> --<span class="hljs-keyword">version</span> 查看版本<br><span class="hljs-keyword">python3</span> -<span class="hljs-keyword">m</span> venv venv<br><span class="hljs-keyword">source</span> venv/bin/activate<br></code></pre></td></tr></table></figure>
-<p><strong>windows下请直接在命令行启动activate例如</strong></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> powershell<br>./activate.ps1<br><br><span class="hljs-regexp">//</span> cmd命令行<br>./activate.bat<br></code></pre></td></tr></table></figure>
+<p><strong>windows下请直接在命令行启动activate例如，并且activate所在的文件夹在windows下名字可能是script</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-comment"># powershell启动ps1文件</span><br>./<span class="hljs-built_in">activate</span>.ps1<br><br><span class="hljs-comment"># cmd命令行启动bat文件</span><br>./<span class="hljs-built_in">activate</span>.bat<br></code></pre></td></tr></table></figure>
 <p>如果报错请查一下相关资料，如果加载成功可以看到命令行前带有<strong>venv提示符</strong>：</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png" srcset="/img/loading.gif" lazyload alt="image-20221208142423327"></p>
 <p>随后使用pip3安装nonebot脚手架，并通过nb命令创建bot代码，通过<code>nb run</code>运行bot具体可以参考<a target="_blank" rel="noopener" href="https://v2.nonebot.dev/docs/start/installation">nonebot</a>文档</p>
@@ -517,7 +516,9 @@ nonebot默认指令需要在前面加一个<code>/</code>斜杠来触发，请�
 <p><strong>请注意！！请注意！！请注意！！</strong><br>
 <strong>在adapter这里【使用空格】来选择OneBot V11适配器</strong>，最后选择完结果如下。</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png" srcset="/img/loading.gif" lazyload alt="image-20221208125102633"></p>
-<p>至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），随后使用<code>nb run</code>启动bot或者使用python3 bot来启动</p>
+<p>如果你配置成功你的目录应该是如下的形式</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">.<br>├── <span class="hljs-keyword">bot</span><br><span class="hljs-keyword"></span>│   └── <span class="hljs-keyword">bot.py	</span>		<span class="hljs-comment"># 创建的bot的启动文件</span><br>├── cqhttp<br>└── venv<br>    ├── <span class="hljs-keyword">bin	</span>				<span class="hljs-comment"># windows下名字可能是script</span><br>    ├── include<br>    ├── lib<br>    └── pyvenv.cfg<br></code></pre></td></tr></table></figure>
+<p>至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），<strong>随后进入刚刚创建的bot文件夹</strong>，使用<code>nb run</code>启动bot或者使用python3 bot来启动</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">nb <span class="hljs-built_in">run</span> <span class="hljs-comment">#启动bot</span><br></code></pre></td></tr></table></figure>
 <p>要与机器人互动，可以首先使用<code>/echo</code>命令让其输出一些信息，斜杠<code>/</code>是nonebot默认的命令起始符号，可以自定义设置。</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png" srcset="/img/loading.gif" lazyload alt="image-20221208142819097"></p>
@@ -544,8 +545,7 @@ nonebot默认指令需要在前面加一个<code>/</code>斜杠来触发，请�
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">pip3 <span class="hljs-keyword">install </span>nonebot-plugin-<span class="hljs-keyword">multi-chatgpt </span>--upgrade<br></code></pre></td></tr></table></figure>
 <p>随后在<code>bot.py</code>中加上如下代码，加载插件</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">nonebot.load<span class="hljs-constructor">_plugin(&#x27;<span class="hljs-params">nonebot_plugin_multi_chatgpt</span>&#x27;)</span><br></code></pre></td></tr></table></figure>
-<p>具体配置方法请查[lingyin-bot中的<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/lingyin-bot/blob/main/.env.dev#L11-L24">配置文件</a>示例，和<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/lingyin-bot/tree/main/plugins/chatGPT">插件主页</a></p>
-<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221211235728170.png" srcset="/img/loading.gif" lazyload alt="image-20221211235728170"></p>
+<p>具体配置方法请查lingyin-bot中的<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/lingyin-bot/blob/main/.env.dev#L11-L24">配置文件</a>示例，和<a target="_blank" rel="noopener" href="https://github.com/chrisyy2003/lingyin-bot/tree/main/plugins/chatGPT">插件主页</a></p>
 <h2 id="闲聊群">闲聊群</h2>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png" srcset="/img/loading.gif" lazyload alt="image-20221208133611308"></p>
 
