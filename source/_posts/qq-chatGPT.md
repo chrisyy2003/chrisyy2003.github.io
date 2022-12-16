@@ -13,6 +13,23 @@ categories:
 >   有问题的都是针对插件。
 >
 >   此外，openai现在高强度更新antibot策略可能策略随时会变，建议没有基础的朋友先等待，有基础的可以关注最新方案尝鲜。
+>
+>   
+>
+>   **是小白？**如果你是小白的话，只需要关系如何安装插件就可以了，更新内容可以不用看，直接从原教程的[前言](https://blog.chrisyy.top/qq-chatGPT.html#%E5%89%8D%E8%A8%80)开始看就可以了。
+
+# 遇到问题？
+
+首先可以直接看这里排查是否存在问题
+
+1.  websocket bad handshake 
+    请查看是否配置了v11适配器，适配器是通过空格选择的，不是enter，在视频6：19秒处。
+2.  发送指令没有回复
+    nonebot默认指令需要在前面加一个`/`斜杠来触发，请查看文章最后。
+3.  Too many... 这种问题请挂代理访问。
+    ![image-20221216225749449](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216225749449.png)
+
+
 
 # 12月16日更新
 
@@ -73,7 +90,7 @@ print(res)
 
 
 
-# ~~openai上了Cloudflare的临时解决方案~~
+# ~~Cloudflare的临时解决方案~~
 
 目前情况是寄了，暂时还没有一个很好的解决办法。
 
@@ -100,17 +117,6 @@ print(res)
     **请确保获取的cf的设备和bot是同一台设备！！！**就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的
 6.  test能过之后就配置bot的env.dev如下图![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
 7.  随后启动bot，启动方法请看lingyin-bot主页
-
-# 遇到问题？
-
-可以直接看这里排查是否存在问题
-
-1.  websocket bad handshake 
-    请查看是否配置了v11适配器，适配器是通过空格选择的，不是enter，在视频6：19秒处。
-2.  发送指令没有回复
-    nonebot默认指令需要在前面加一个`/`斜杠来触发，请查看文章最后。
-
-
 
 # 前言
 
