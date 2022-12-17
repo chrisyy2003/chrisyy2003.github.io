@@ -284,13 +284,13 @@ source venv/bin/activate
 
 如果启动成功，可以看到如下的日志
 
-![image-20221216213333070](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216213333070.png)
+![image-20221217114837304](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221217114837304.png)
 
 这里有几个部分说明：
 
-1.  第一个框，dev表示我们进入的是dev环境，读取的配置是env.dev，如果是prod请看env文件是否正确设置了环境为dev
+1.  第一个框，dev表示我们进入的是dev环境，读取的配置是env.dev，如果是prod请看env文件是否正确设置了环境为dev。
 2.  第二个框，表示读取了config了的配置，如果发现自己的指令没有触发，请检查这里是否正确读取。
-3.  第三个框，表示我们成功加载了那几个插件，这里我们加载了gpt3，echo，apscheduler和chatGPT
+3.  第三个框，表示我们成功加载了那几个插件，**这里我们加载了内置的echo**。
 4.  第四个框，表示我们的nonebot和cqhttp成功链接，cqhttp的消息能够转发到nonebot啦！
 
 随后要与机器人互动，可以首先使用`/echo`命令让其输出一些信息，斜杠`/`是nonebot默认的命令起始符号，可以自定义设置。
@@ -308,9 +308,9 @@ nb plugin install nonebot-plugin-chatgpt
 安装完成之后，我们需要配置一些信息，在创建机器人根目录下中`.env.dev`文件中填入
 
 ```
-CHATGPT_SESSION_TOKEN="XXX" # token信息
-CHATGPT_COMMAND="chat"			# 触发聊天的命令
-CHATGPT_TO_ME="False"				# 是否需要@机器人
+CHATGPT_SESSION_TOKEN="XXX"     # token信息
+CHATGPT_COMMAND="chat"          # 触发聊天的命令
+CHATGPT_TO_ME="False"           # 是否需要@机器人
 ```
 
 最后文件显示如下：
