@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png">
-<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216213333070.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221217114837304.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208160709537.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143447455.png">
@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208162320883.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png">
 <meta property="article:published_time" content="2022-12-07T15:35:05.000Z">
-<meta property="article:modified_time" content="2022-12-16T15:21:31.778Z">
+<meta property="article:modified_time" content="2022-12-17T03:50:16.624Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -543,12 +543,12 @@
 <p>至此Bot已经基本配置成功，并且安装了一个最简单的内置echo插件（可选的），<strong>随后进入刚刚创建的bot文件夹</strong>，使用<code>nb run</code>启动bot或者使用python3 bot来启动</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">nb <span class="hljs-built_in">run</span> <span class="hljs-comment">#启动bot</span><br></code></pre></td></tr></table></figure>
 <p>如果启动成功，可以看到如下的日志</p>
-<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216213333070.png" srcset="/img/loading.gif" lazyload alt="image-20221216213333070"></p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221217114837304.png" srcset="/img/loading.gif" lazyload alt="image-20221217114837304"></p>
 <p>这里有几个部分说明：</p>
 <ol>
-<li>第一个框，dev表示我们进入的是dev环境，读取的配置是env.dev，如果是prod请看env文件是否正确设置了环境为dev</li>
+<li>第一个框，dev表示我们进入的是dev环境，读取的配置是env.dev，如果是prod请看env文件是否正确设置了环境为dev。</li>
 <li>第二个框，表示读取了config了的配置，如果发现自己的指令没有触发，请检查这里是否正确读取。</li>
-<li>第三个框，表示我们成功加载了那几个插件，这里我们加载了gpt3，echo，apscheduler和chatGPT</li>
+<li>第三个框，表示我们成功加载了那几个插件，<strong>这里我们加载了内置的echo</strong>。</li>
 <li>第四个框，表示我们的nonebot和cqhttp成功链接，cqhttp的消息能够转发到nonebot啦！</li>
 </ol>
 <p>随后要与机器人互动，可以首先使用<code>/echo</code>命令让其输出一些信息，斜杠<code>/</code>是nonebot默认的命令起始符号，可以自定义设置。</p>
@@ -557,7 +557,7 @@
 <p>最后一步安装我们自定的插件，使用nb直接安装</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">nb <span class="hljs-keyword">plugin</span> install nonebot-<span class="hljs-keyword">plugin</span>-chatgpt<br></code></pre></td></tr></table></figure>
 <p>安装完成之后，我们需要配置一些信息，在创建机器人根目录下中<code>.env.dev</code>文件中填入</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">CHATGPT_SESSION_TOKEN</span>=<span class="hljs-string">&quot;XXX&quot;</span> <span class="hljs-comment"># token信息</span><br><span class="hljs-attr">CHATGPT_COMMAND</span>=<span class="hljs-string">&quot;chat&quot;</span>			<span class="hljs-comment"># 触发聊天的命令</span><br><span class="hljs-attr">CHATGPT_TO_ME</span>=<span class="hljs-string">&quot;False&quot;</span>				<span class="hljs-comment"># 是否需要@机器人</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">CHATGPT_SESSION_TOKEN</span>=<span class="hljs-string">&quot;XXX&quot;</span>     <span class="hljs-comment"># token信息</span><br><span class="hljs-attr">CHATGPT_COMMAND</span>=<span class="hljs-string">&quot;chat&quot;</span>          <span class="hljs-comment"># 触发聊天的命令</span><br><span class="hljs-attr">CHATGPT_TO_ME</span>=<span class="hljs-string">&quot;False&quot;</span>           <span class="hljs-comment"># 是否需要@机器人</span><br></code></pre></td></tr></table></figure>
 <p>最后文件显示如下：</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208160709537.png" srcset="/img/loading.gif" lazyload alt="image-20221208160709537"></p>
 <p>启动bot使用<code>nb run</code>命令，可以在输出信息中查看我们的插件是否被加载.</p>
