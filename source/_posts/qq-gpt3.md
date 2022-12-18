@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GPT3-QQ机器人搭建教程！
+title: 3分钟搭建GPT3-QQ机器人！
 date: 2022-12-18 00:49:20
 categories:
     - other
