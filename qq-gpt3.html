@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221218173930474.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221217114837304.png">
-<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png">
+<meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221219122546182.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221218172400814.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221218172520895.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221218172611773.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://camo.githubusercontent.com/67570a1128c160d031c195401c16937b0d34dffd8fb0d70ff14d49714bd56248/68747470733a2f2f636872697379792d696d616765732e6f73732d636e2d6368656e6764752e616c6979756e63732e636f6d2f696d672f696d6167652d32303232313231373233323135353130302e706e67">
 <meta property="og:image" content="https://camo.githubusercontent.com/73360f11df6112c2354a34252cef8335b0bfbe3f7576a0638b76925d38eeab00/68747470733a2f2f636872697379792d696d616765732e6f73732d636e2d6368656e6764752e616c6979756e63732e636f6d2f696d672f696d6167652d32303232313231373233333732393236332e706e67">
 <meta property="article:published_time" content="2022-12-17T16:49:20.000Z">
-<meta property="article:modified_time" content="2022-12-18T12:26:08.818Z">
+<meta property="article:modified_time" content="2022-12-19T04:26:04.052Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -383,10 +383,10 @@
 <li>第四个框，表示我们的nonebot和cqhttp成功链接，cqhttp的消息能够转发到nonebot啦！</li>
 </ol>
 <p>随后要与机器人互动，可以首先使用<code>echo</code>命令让其输出一些信息。</p>
-<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png" srcset="/img/loading.gif" lazyload alt="image-20221208142819097"></p>
+<p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221219122546182.png" srcset="/img/loading.gif" lazyload alt="image-20221219122546182"></p>
 <h1 id="配置">配置</h1>
 <p>通过包管理器安装，可以通过pip，或者poetry等方式都安装，我们这里以pip为例，在命令行中输入：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> nonebot_plugin_gpt3<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> nonebot_plugin_gpt3 -U<br></code></pre></td></tr></table></figure>
 <p>随后在<code>bot.py</code>中加上如下代码，加载插件</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">nonebot.load<span class="hljs-constructor">_plugin(&#x27;<span class="hljs-params">nonebot_plugin_gpt3</span>&#x27;)</span><br></code></pre></td></tr></table></figure>
 <p>随后我们可以启动bot，通过<code>python3 bot.py</code>来启动，首次启动会在默认路径API路径<code>config/chatgpt_img_config.yml</code>下生成yml文件，在其中可以配置您的API，如果已经存在了则会直接读取，所以首次启动会加载0个API。</p>
