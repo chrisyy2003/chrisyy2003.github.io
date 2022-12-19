@@ -109,14 +109,14 @@ python3 bot.py
 
 随后要与机器人互动，可以首先使用`echo`命令让其输出一些信息。
 
-![image-20221208142819097](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png)
+![image-20221219122546182](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221219122546182.png)
 
 # 配置
 
 通过包管理器安装，可以通过pip，或者poetry等方式都安装，我们这里以pip为例，在命令行中输入：
 
 ```
-pip install nonebot_plugin_gpt3
+pip install nonebot_plugin_gpt3 -U
 ```
 
 随后在`bot.py`中加上如下代码，加载插件
