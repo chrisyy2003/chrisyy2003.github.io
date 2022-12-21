@@ -8,15 +8,17 @@ categories:
 
 # 遇到问题？
 
-vscode
+1.  私聊有反应，群里没反应？
 
-playwright
+可能是机器人被风控，二是群中触发根据设置可能需要@
 
-fastload
+2.   开启图片渲染失败
 
-有问题可以在下方留言，随后我会把遇到的问题，补充到这里让其他人少踩坑，感谢您的补充。
+请执行命令，`pip install playwright && playwright install`，并在 `.env.dev` 文件中设置 `FASTAPI_RELOAD=false`
 
-同时如果您会使用Github也欢迎提[Issue]()。
+3.   windows安装失败
+
+windows需要额外安装一个rust环境，https://blog.chrisyy.top/qq-gpt3.html#windows
 
 # 前言
 
@@ -44,9 +46,9 @@ GPT3是公开了官方API接口，可以通过openai官方仓库找到代码实�
 
 2022 年 12 月 15 日：限制了ip，非可用地区只能请求一句话，方案变为了完全的模拟浏览器的方案。
 
-## 安装步骤
+## 安装
 
-这一次安装在QQ群中接入GPT3只需要两步：
+安装总共只有两步：
 
 1.  下载整合包，输入qq号登陆
 2.  安装插件，输入API
@@ -116,7 +118,7 @@ python3 bot.py
 通过包管理器安装，可以通过pip，或者poetry等方式都安装，我们这里以pip为例，在命令行中输入：
 
 ```
-pip install nonebot_plugin_gpt3 -U
+pip install nonebot-plugin-gpt3 playwright -U
 ```
 
 随后在`bot.py`中加上如下代码，加载插件
@@ -125,7 +127,7 @@ pip install nonebot_plugin_gpt3 -U
 nonebot.load_plugin('nonebot_plugin_gpt3')
 ```
 
-随后我们可以启动bot，通过`python3 bot.py`来启动，首次启动会在默认路径API路径`config/chatgpt_img_config.yml`下生成yml文件，在其中可以配置您的API，如果已经存在了则会直接读取，所以首次启动会加载0个API。
+随后我们可以启动bot，通过`python3 bot.py`来启动，首次启动会在默认路径API路径`config/chatgpt_api_key.yml`下生成yml文件，在其中可以配置您的API，如果已经存在了则会直接读取，所以首次启动会加载0个API。
 
 ![image-20221218172400814](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221218172400814.png)
 
@@ -135,11 +137,21 @@ nonebot.load_plugin('nonebot_plugin_gpt3')
 
 ![image-20221218172611773](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221218172611773.png)
 
-### windows
+## windows
 
 windows的用户还额外需要安装一个rust的环境，[点击这里下载](https://file.chrisyy.top/rustup-setup.exe)之后，安装即可。
 
+插件的更多配置，请看插件主页：
+
+https://github.com/chrisyy2003/nonebot-plugin-gpt3
+
 # 使用
+
+## 基本会话
+
+对话前，加上前缀即可与GPT3对话。
+
+​	![image-20221221203808576](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221221203808576.png)
 
 ## 连续会话
 
