@@ -18,12 +18,12 @@
   <meta name="author" content="chrisyy">
   <meta name="keywords" content="blog">
   
-    <meta name="description" content="https:&#x2F;&#x2F;github.com&#x2F;MystenLabs&#x2F;sui&#x2F;tree&#x2F;main&#x2F;crates&#x2F;sui-framework&#x2F;sources sui介绍 头等舱研报： [315-SUI.pdf](…&#x2F;…&#x2F;…&#x2F;…&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeC">
+    <meta name="description" content="https:&#x2F;&#x2F;github.com&#x2F;MystenLabs&#x2F;sui&#x2F;tree&#x2F;main&#x2F;crates&#x2F;sui-framework&#x2F;sources sui介绍 头等舱研报： 315-SUI.pdf 架构  每个 Objects 在 Sui 执行环境中都有一个唯一的 ID，并有指向所有者地址的内部指针。通过使用这些概念，很容易通过检查交易是否使用相同的 Objects 来识别关联。 通过将声明关联关系">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sui Framework分析">
 <meta property="og:url" content="https://blog.chrisyy.top/intro-sui-framework.html">
 <meta property="og:site_name" content="Chris&#39;s blog">
-<meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;MystenLabs&#x2F;sui&#x2F;tree&#x2F;main&#x2F;crates&#x2F;sui-framework&#x2F;sources sui介绍 头等舱研报： [315-SUI.pdf](…&#x2F;…&#x2F;…&#x2F;…&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeC">
+<meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;MystenLabs&#x2F;sui&#x2F;tree&#x2F;main&#x2F;crates&#x2F;sui-framework&#x2F;sources sui介绍 头等舱研报： 315-SUI.pdf 架构  每个 Objects 在 Sui 执行环境中都有一个唯一的 ID，并有指向所有者地址的内部指针。通过使用这些概念，很容易通过检查交易是否使用相同的 Objects 来识别关联。 通过将声明关联关系">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141259428.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141845093.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180507340.png">
 <meta property="og:image" content="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128182935767.png">
 <meta property="article:published_time" content="2022-12-13T07:58:21.000Z">
-<meta property="article:modified_time" content="2022-12-15T08:32:51.299Z">
+<meta property="article:modified_time" content="2022-12-21T13:53:18.961Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -270,7 +270,7 @@
         
         
         
-          63 分钟
+          62 分钟
         
       </span>
     
@@ -323,7 +323,7 @@
                 
                 <p><a target="_blank" rel="noopener" href="https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/sources">https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/sources</a></p>
 <h1 id="sui介绍">sui介绍</h1>
-<p>头等舱研报： [315-SUI.pdf](…/…/…/…/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/7faed2b9a43bc96e986bb671d11b7e8f/Message/MessageTemp/e218d480fa03dd16c4bdd9546b722041/File/315-SUI.pdf)</p>
+<p>头等舱研报： <a target="_blank" rel="noopener" href="https://file.chrisyy.top/315-SUI.pdf">315-SUI.pdf</a></p>
 <h2 id="架构">架构</h2>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141259428.png" srcset="/img/loading.gif" lazyload alt="image-20221214141259428"></p>
 <p>每个 Objects 在 Sui 执行环境中都有一个唯一的 ID，并有指向所有者地址的内部指针。通过使用这些概念，很容易通过检查交易是否使用相同的 Objects 来识别关联。</p>
@@ -456,6 +456,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/blockchain/" class="category-chain-item">blockchain</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
