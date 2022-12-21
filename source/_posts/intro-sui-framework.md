@@ -2,7 +2,8 @@
 layout: post
 title: Sui Framework分析
 date: 2022-12-13 15:58:21
-tags:
+categories:
+    - blockchain
 ---
 
 
@@ -11,7 +12,7 @@ https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/sources
 
 # sui介绍
 
-头等舱研报： [315-SUI.pdf](../../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/7faed2b9a43bc96e986bb671d11b7e8f/Message/MessageTemp/e218d480fa03dd16c4bdd9546b722041/File/315-SUI.pdf) 
+头等舱研报： [315-SUI.pdf](https://file.chrisyy.top/315-SUI.pdf) 
 
 ## 架构
 
