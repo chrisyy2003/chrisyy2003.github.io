@@ -12,13 +12,17 @@ categories:
 
 可能是机器人被风控，二是群中触发根据设置可能需要@
 
-2.   开启图片渲染失败
-
-请执行命令，`pip install playwright && playwright install`，并在 `.env.dev` 文件中设置 `FASTAPI_RELOAD=false`
-
-3.   windows安装失败
+2.   windows安装失败
 
 windows需要额外安装一个rust环境，https://blog.chrisyy.top/qq-gpt3.html#windows
+
+3.   linux安装不上
+
+插件依赖playwright，**playwright在linux上只支持ubuntu系统，不支持centos**。
+
+4.   开启图片渲染失败
+
+请执行命令，`pip install playwright && playwright install`，并在 `.env.dev` 文件中设置 `FASTAPI_RELOAD=false`
 
 # 前言
 
@@ -163,7 +167,7 @@ https://github.com/chrisyy2003/nonebot-plugin-gpt3
 
 ## 人格设置
 
-预设了**AI助手/猫娘/nsfw猫娘**三种人格，可以通过人格设置切换。内置的设定可以从[这里看到](https://github.com/chrisyy2003/lingyin-bot/blob/main/plugins/gpt3/nonebot_plugin_gpt3/__init__.py#L16-L18)。
+预设了**AI助手/猫娘/nsfw猫娘**三种人格，可以通过人格设置切换。内置的设定可以从[这里看到](https://github.com/chrisyy2003/nonebot-plugin-gpt3/blob/main/nonebot_plugin_gpt3/__init__.py#L9-L11)。
 
 [![image-20221217231703614](https://camo.githubusercontent.com/f91398823f6c271dc53de2ddfdcbd5ca08b2c7fcab370d4ee5af47cc41311806/68747470733a2f2f636872697379792d696d616765732e6f73732d636e2d6368656e6764752e616c6979756e63732e636f6d2f696d672f696d6167652d32303232313231373233313730333631342e706e67)](https://camo.githubusercontent.com/f91398823f6c271dc53de2ddfdcbd5ca08b2c7fcab370d4ee5af47cc41311806/68747470733a2f2f636872697379792d696d616765732e6f73732d636e2d6368656e6764752e616c6979756e63732e636f6d2f696d672f696d6167652d32303232313231373233313730333631342e706e67)
 
