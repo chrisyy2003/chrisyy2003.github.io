@@ -364,7 +364,3 @@ nonebot.load_plugin('nonebot_plugin_multi_chatgpt')
 ```
 
 具体配置方法请查lingyin-bot中的[配置文件](https://github.com/chrisyy2003/lingyin-bot/blob/main/.env.dev#L11-L24)示例，和[插件主页](https://github.com/chrisyy2003/lingyin-bot/tree/main/plugins/chatGPT)
-
-## 闲聊群
-
-![image-20221208133611308](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208133611308.png)

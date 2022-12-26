@@ -20,7 +20,7 @@ categories:
 
 # MySQL 执行流程
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (7).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(7).png)
 
 MySQL 的架构共分为两层：**Server 层和存储引擎层**，
 
@@ -129,7 +129,7 @@ SQL 标准提出了四种隔离级别来规避这些现象，隔离级别越高�
 
 按隔离水平高低排序如下：
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image (1).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image%20(1).png)
 
 **InnoDB 引擎的默认隔离级别虽然是「可重复读」，但是它通过next-key lock 锁（行锁和间隙锁的组合）来锁住记录之间的“间隙”和记录本身，防止其他事务在这个记录之间插入新的记录，这样就避免了幻读现象。**
 

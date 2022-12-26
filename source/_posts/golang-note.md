@@ -23,9 +23,9 @@ categories:
 
 ## 数据类型与关键字
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (1).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(1).png)
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (2).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(2).png)
 
 ## print格式化输出函数
 
@@ -258,7 +258,7 @@ value, ok := m["name"]
 
 根据 key 的不同类型/返回参数，编译器会将查找函数用更具体的函数替换
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (3).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(3).png)
 
 1. **写保护监测**
 
@@ -280,7 +280,7 @@ value, ok := m["name"]
 
 流程如下图：
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (4).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(4).png)
 
 Map遍历
 
@@ -478,7 +478,7 @@ channel是Go语言中的一个**数据类型**，可以把它看成管道，用�
 
 **常见问题**
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (5).png)
+![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(5).png)
 
 ### channel数据结构
 
