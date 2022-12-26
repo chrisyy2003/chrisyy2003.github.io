@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://camo.githubusercontent.com/67570a1128c160d031c195401c16937b0d34dffd8fb0d70ff14d49714bd56248/68747470733a2f2f636872697379792d696d616765732e6f73732d636e2d6368656e6764752e616c6979756e63732e636f6d2f696d672f696d6167652d32303232313231373233323135353130302e706e67">
 <meta property="og:image" content="https://camo.githubusercontent.com/73360f11df6112c2354a34252cef8335b0bfbe3f7576a0638b76925d38eeab00/68747470733a2f2f636872697379792d696d616765732e6f73732d636e2d6368656e6764752e616c6979756e63732e636f6d2f696d672f696d6167652d32303232313231373233333732393236332e706e67">
 <meta property="article:published_time" content="2022-12-17T16:49:20.000Z">
-<meta property="article:modified_time" content="2022-12-22T09:00:45.794Z">
+<meta property="article:modified_time" content="2022-12-26T06:18:44.207Z">
 <meta property="article:author" content="chrisyy">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -276,7 +276,7 @@
         
         
         
-          22 分钟
+          24 分钟
         
       </span>
     
@@ -358,6 +358,11 @@
 <p>2022 年 12 月 14 日：添加了动态cf字段，请求会使得cf字段刷新。</p>
 <p>2022 年 12 月 15 日：限制了ip，非可用地区只能请求一句话，方案变为了完全的模拟浏览器的方案。</p>
 <h2 id="安装">安装</h2>
+<p>启动bot有两种方式：</p>
+<ol>
+<li>docker安装（推荐）</li>
+<li>手动安装</li>
+</ol>
 <p>安装总共只有两步：</p>
 <ol>
 <li>下载整合包，输入qq号登陆</li>
@@ -366,7 +371,12 @@
 <p>前两步实际上包含cqhttp和nonebot的配置，但是我整合了一下，可以使得大家更方便一点，可以通过这里直接下载。</p>
 <p><strong>并且下文则按照整合包的安装顺序讲解。</strong></p>
 <p>如果您了解相关原理，可以不通过打包的文件，这样可以实现更加自定义的配置，具体可以看前一个文章，其中有讲到如何配置cqhttp和nonebot</p>
-<h1 id="启动框架">启动框架</h1>
+<h1 id="docker安装（推荐）">docker安装（推荐）</h1>
+<p>首先<a target="_blank" rel="noopener" href="https://file.chrisyy.top/qq-example.zip">下载整合包</a>，随后解压，切换到解压文件夹根目录，在<code>config/chatgpt_api_key.yml</code>填入自己的API，并执行以下命令即可</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -v $(PWD):<span class="hljs-regexp">/bot -d chrisyy2003/</span>nonebot bash <span class="hljs-regexp">/bot/</span>start.sh<br></code></pre></td></tr></table></figure>
+<p>随后在<code>cqhttp/config.yml</code>中修改为您的QQ号，随后根据系统启动相应的cqhttp程序即可。cqhttp启动方式可以参看下面的步骤。</p>
+<h1 id="手动安装">手动安装</h1>
+<h2 id="启动框架">启动框架</h2>
 <p>这一节会启动我门的QQ和一个最基本的机器人</p>
 <ol>
 <li>首先<a target="_blank" rel="noopener" href="https://file.chrisyy.top/qq-example.zip">下载整合包</a>，随后解压，解压出来的文件应该如下：</li>
@@ -396,10 +406,9 @@
 </ol>
 <p>随后要与机器人互动，可以首先使用<code>echo</code>命令让其输出一些信息。</p>
 <p><img src="https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221219122546182.png" srcset="/img/loading.gif" lazyload alt="image-20221219122546182"></p>
-<h1 id="插件安装">插件安装</h1>
-<p><strong>请提前确保你的python版本&gt;=3.10</strong></p>
+<h2 id="插件安装">插件安装</h2>
 <p>通过包管理器安装，可以通过pip，或者poetry等方式都安装，我们这里以pip为例，在命令行中输入：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> nonebot-plugin-gpt3 playwright -U<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> nonebot-plugin-gpt3 playwright -U &amp;&amp; playwright <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
 <p>随后在<code>bot.py</code>中加上如下代码，加载插件</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">nonebot.load<span class="hljs-constructor">_plugin(&#x27;<span class="hljs-params">nonebot_plugin_gpt3</span>&#x27;)</span><br></code></pre></td></tr></table></figure>
 <p>随后我们可以启动bot，通过<code>python3 bot.py</code>来启动，首次启动会在默认路径API路径<code>config/chatgpt_api_key.yml</code>下生成yml文件，在其中可以配置您的API，如果已经存在了则会直接读取，所以首次启动会加载0个API。</p>
