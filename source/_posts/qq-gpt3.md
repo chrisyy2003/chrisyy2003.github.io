@@ -90,7 +90,7 @@ docker run -v $(PWD):/bot -d -p 8080:8080 chrisyy2003/nonebot bash /bot/start.sh
 
 >   cqhttp请不要在docker内启动，因为docker无法保存数据，不然每次需要重新登陆。
 >
->   docker只是提供一个nonebot的运行环境。docker内的文件的是双向绑定的，外面修改文件，docker内也能修改，所以修改文件最好都是在当前目录中修改。
+>   docker只是提供一个nonebot的运行环境。docker内的文件的是双向绑定的，外面修改了文件，docker也会被修改，所以修改文件最好都是在当前目录中修改。
 
 # 手动安装
 
