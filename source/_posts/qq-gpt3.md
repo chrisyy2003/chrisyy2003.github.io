@@ -57,7 +57,7 @@ GPT3是公开了官方API接口，可以通过openai官方仓库找到代码实�
 1.  docker安装（推荐）
 2.  手动安装
 
-安装总共只有两步：
+手动安装总共只有两步：
 
 1.  下载整合包，输入qq号登陆
 2.  安装插件，输入API
@@ -70,13 +70,27 @@ GPT3是公开了官方API接口，可以通过openai官方仓库找到代码实�
 
 # docker安装（推荐）
 
-首先[下载整合包](https://file.chrisyy.top/qq-example.zip)，随后解压，切换到解压文件夹根目录，在`config/chatgpt_api_key.yml`填入自己的API，并执行以下命令即可
+首先[下载整合包](https://file.chrisyy.top/qq-example.zip)，随后解压，切换到解压文件夹根目录，
+
+1.  在`config/chatgpt_api_key.yml`填入自己的API，
+2.  随后在`bot.py`中加上如下代码，加载插件
 
 ```
-docker run -v $(PWD):/bot -d chrisyy2003/nonebot bash /bot/start.sh
+nonebot.load_plugin('nonebot_plugin_gpt3')
+```
+
+
+最后执行以下命令即可
+
+```
+docker run -v $(PWD):/bot -d -p 8080:8080 chrisyy2003/nonebot bash /bot/start.sh
 ```
 
 随后在`cqhttp/config.yml`中修改为您的QQ号，随后根据系统启动相应的cqhttp程序即可。cqhttp启动方式可以参看下面的步骤。
+
+>   cqhttp请不要在docker内启动，因为docker无法保存数据，不然每次需要重新登陆。
+>
+>   docker只是提供一个nonebot的运行环境。docker内的文件的是双向绑定的，外面修改文件，docker内也能修改，所以修改文件最好都是在当前目录中修改。
 
 # 手动安装
 
