@@ -7,10 +7,9 @@ layout: about
 
 CTFer in ***crypto**/blockchain/web*
 
-2022.1 @*Beosin*
+2022.1 @*Beosin (intern)*
 
 ------
 
 Dev: ***Golang**/**Python**/JavaScript/Vue*
 Blockchain: *Move/Solidity/Contract Audit*
-<!-- Game: *LoL/Minecraft* -->
