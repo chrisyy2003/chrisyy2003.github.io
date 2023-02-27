@@ -279,7 +279,7 @@
         
         
         
-          46 分钟
+          47 分钟
         
       </span>
     
@@ -436,7 +436,7 @@
 <p><code>immutable</code>：这意味着一个对象是不可变的，不能被任何人改变。因此，这样的对象没有拥有者。任何人都可以在他们的 Move 通话中使用它。并且所有 Move 包都是不可变对象：一旦发布，就无法更改。在Move代码中可以通过<a target="_blank" rel="noopener" href="https://docs.sui.io/build/move/sui-move-library">freeze_object</a>库 API将对象变成不可变对象。不可变对象只能作为只读引用 ( <code>&amp;T</code>) 在 Move 调用中传递。</p>
 </li>
 <li>
-<p><code>shared</code>：对象可以共享，这意味着任何人都可以读取或写入该对象。与可变拥有的对象（单写者）相比，共享对象需要<a target="_blank" rel="noopener" href="https://docs.sui.io/learn/architecture/consensus">共识</a>来排序读取和写入。有关创建和访问共享对象的示例，请参阅https://examples.sui.io/上的<a target="_blank" rel="noopener" href="https://examples.sui.io/basics/shared-object.html#shared-object">共享对象</a>。</p>
+<p><code>shared</code>：对象可以共享，这意味着任何人都可以读取或写入该对象。与可变拥有的对象（单写者）相比，共享对象需要<a target="_blank" rel="noopener" href="https://docs.sui.io/learn/architecture/consensus">共识</a>来排序读取和写入。有关创建和访问共享对象的示例，请参阅<a target="_blank" rel="noopener" href="https://examples.sui.io/%E4%B8%8A%E7%9A%84%5B%E5%85%B1%E4%BA%AB%E5%AF%B9%E8%B1%A1%5D(https://examples.sui.io/basics/shared-object.html#shared-object)%E3%80%82">https://examples.sui.io/上的[共享对象](https://examples.sui.io/basics/shared-object.html#shared-object)。</a></p>
 </li>
 </ul>
 <p>在交易最后，我们看到用于支付发布费用的 gas 对象（0x2c45ed66ecff9e49ff14938cc557016065307fea）由于支付了gas费从而也被修改了。</p>
