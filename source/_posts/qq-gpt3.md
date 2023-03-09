@@ -6,15 +6,17 @@ categories:
     - other
 ---
 
+# 3.3日更新: 支持gpt-3.5-turbo模型
+
+本文部分已经过时，关于**插件配置**部分请直接看仓库readme配置
+
+https://github.com/chrisyy2003/nonebot-plugin-gpt3#%E9%85%8D%E7%BD%AE
+
 # 遇到问题？
 
 1.  私聊有反应，群里没反应？
 
 可能是机器人被风控，二是群中触发根据设置可能需要@
-
-2.   windows安装失败
-
-windows需要额外安装一个rust环境，https://blog.chrisyy.top/qq-gpt3.html#windows
 
 3.   linux安装不上
 
