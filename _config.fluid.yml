@@ -33,8 +33,6 @@ tab_title_separator: " - "
 # Force all links to be HTTPS (applicable to HTTP mixed error)
 force_https: true
 
-# 代码块的增强配置
-# Enhancements to code blocks
 code:
   # 是否开启复制代码的按钮
   # Enable copy code button
@@ -63,7 +61,7 @@ code:
     highlightjs:
       # 在链接中挑选 style 填入
       # Select a style in the link
-      # See: https://highlightjs.org/static/demo/
+      # See: https://highlightjs.org/demo/
       style: "github gist"
       style_dark: "dark"
 
@@ -131,7 +129,7 @@ dark_mode:
   # 默认的选项（当用户手动切换后则不再按照默认模式），选择 `auto` 会优先遵循 prefers-color-scheme，其次按用户本地时间 18 点到次日 6 点之间进入暗色模式
   # Default option (when the visitor switches manually, the default mode is no longer followed), choosing `auto` will give priority to prefers-color-scheme, and then enter the dark mode from 18:00 to 6:00 in the visitor’s local time
   # Options: auto | light | dark
-  default: auto
+  default: dark
 
 # 主题颜色配置，其他不生效的地方请使用自定义 css 解决，配色可以在下方链接中获得启发
 # Theme color, please use custom CSS to solve other colors, color schema can be inspired by the links below
@@ -352,7 +350,7 @@ navbar:
   menu:
     - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
+    # - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     # - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     - { key: "links", name: "链接", link: "/links/", icon: "iconfont icon-link-fill" }
@@ -572,7 +570,7 @@ post:
     # 估计阅读全文需要的时长
     # Estimated reading time
     min2read:
-      enable: true
+      enable: false
       # 每个字词的长度，建议：中文≈2，英文≈5，中英混合可自行调节
       # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
       awl: 2
@@ -1021,24 +1019,6 @@ links:
   # Member item of page
   
   items:
-    - {
-      title: "Move Book",
-      intro: "部署在本站的MoveBook 中文版",
-      link: "https://movebook.chrisyy.top",
-      avatar: "/imgs/avatar_default.png"
-    }
-    - {
-      title: "Move Patterns Book",
-      intro: "部署在本站的Move设计模式 中文版",
-      link: "https://move-patterns.chrisyy.top",
-      avatar: "/imgs/avatar_default.png"
-    }
-    - {
-      title: " ",
-      intro: "",
-      link: " ",
-      avatar: ""
-    }
     - {
       title: "Abreot",
       intro: "ACM World Final",
