@@ -36,7 +36,7 @@ nonebot默认指令需要在前面加一个`/`斜杠来触发，请查看文章�
 
 3.  Too many... 这种问题请挂代理访问。因为cf字段是不断刷新的，有ip限制所以只能发一句。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221216230714181.png)
+![](./qq-chatGPT/image-20221216230714181.png)
 
 
 
@@ -114,26 +114,26 @@ print(res)
 ## 安装步骤
 
 1.  首先下载lingyin-bot文件，或者clone
-    ![image-20221212171748432](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212171748432.png)
+    ![image-20221212171748432](./qq-chatGPT/image-20221212171748432.png)
 2.  更新revchatGPT，`pip3 install revChatGPT --upgrade`
 3.  复制图中的cf_clearance的值
-    ![image-20221212103154911](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103154911.png)
+    ![image-20221212103154911](./qq-chatGPT/image-20221212103154911.png)
 4.  拿到user agent值，User-agent的值看这个图
-    ![image-20221212124926694](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212124926694.png)
+    ![image-20221212124926694](./qq-chatGPT/image-20221212124926694.png)
 5.  然后在 https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py#L8-L9 修改为自己的token和cf cookie值和user agent值， 并随后运行[test.py](https://github.com/chrisyy2003/lingyin-bot/blob/main/test.py)文件，这是来检查你的信息能够正确的请求，如果test能跑过那么根据bot[主页](https://github.com/chrisyy2003/lingyin-bot)的说明安装后，bot就也能跑了。
     跑过指的是能返回如下的有效消息：
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212103356692.png)
+![](./qq-chatGPT/image-20221212103356692.png)
 
 如果遇见下面的问题 
 
-![image-20221212150847725](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212150847725.png)
+![image-20221212150847725](./qq-chatGPT/image-20221212150847725.png)
 
 **请确保获取的cf的设备和bot是同一台设备！！！**就是你本地获取的cf就只能本地跑，本地test能过，放到服务器上是不行的，因为需要ip相同。
 
 7.  test能过之后就配置bot的env.dev如下图
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221212123451926.png)
+![](./qq-chatGPT/image-20221212123451926.png)
 
 8.  随后启动bot，启动方法请看lingyin-bot主页
 
@@ -157,7 +157,7 @@ print(res)
 
 所以整个架构大体可以如下图所示
 
-![image-20221208150026750](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208150026750.png)
+![image-20221208150026750](./qq-chatGPT/image-20221208150026750.png)
 
 # 安装cqhttp
 
@@ -165,7 +165,7 @@ print(res)
 
 首先安装cqhttp框架，我们从 [release](https://github.com/Mrs4s/go-cqhttp/releases) 界面下载最新版本的 go-cqhttp，需要根据不同的系统选择不同的文件：
 
-![image-20221208094303224](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208094303224.png)
+![image-20221208094303224](./qq-chatGPT/image-20221208094303224.png)
 
 这里我保存了最常用的系统（Linux，MacOS，Windows 64位）对应的文件，可以[直接下载](https://file.chrisyy.top/go-cqhttp-all.zip)。
 
@@ -202,7 +202,7 @@ print(res)
 
 随后**根据提示选择编号3**（因为nonebot暂时只有反向socket），重新启动后如果成功会显示如下信息
 
-![image-20221208120226802](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208120226802.png)
+![image-20221208120226802](./qq-chatGPT/image-20221208120226802.png)
 
 ## 配置
 
@@ -213,7 +213,7 @@ cqhttp启动时会读取当前目录下是否有`config.yml`文件，如果有�
 1. 修改qq账号
 2. 修改`ws-reverse`中`universal`为` ws://127.0.0.1:8080/onebot/v11/ws`最后servers部分的配置如下：
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208141937474.png)
+![](./qq-chatGPT/image-20221208141937474.png)
 
 
 
@@ -245,7 +245,7 @@ source venv/bin/activate
 
 如果报错请查一下相关资料，如果加载成功可以看到命令行前带有**venv提示符**：
 
-![image-20221208142423327](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142423327.png)
+![image-20221208142423327](./qq-chatGPT/image-20221208142423327.png)
 
 随后使用pip3安装nonebot脚手架，并通过nb命令创建bot代码，通过`nb run`运行bot具体可以参考[nonebot](https://v2.nonebot.dev/docs/start/installation)文档
 
@@ -255,12 +255,12 @@ source venv/bin/activate
  nb # 生成bot文件
 ```
 
-![image-20221209140937584](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221209140937584.png)
+![image-20221209140937584](./qq-chatGPT/image-20221209140937584.png)
 
 **请注意！！请注意！！请注意！！**
 **在adapter这里【使用空格】来选择OneBot V11适配器**，最后选择完结果如下。
 
-![image-20221208125102633](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208125102633.png)
+![image-20221208125102633](./qq-chatGPT/image-20221208125102633.png)
 
 如果你配置成功你的目录应该是如下的形式
 
@@ -284,7 +284,7 @@ source venv/bin/activate
 
 如果启动成功，可以看到如下的日志
 
-![image-20221217114837304](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221217114837304.png)
+![image-20221217114837304](./qq-chatGPT/image-20221217114837304-20250113190241607.png)
 
 这里有几个部分说明：
 
@@ -295,7 +295,7 @@ source venv/bin/activate
 
 随后要与机器人互动，可以首先使用`/echo`命令让其输出一些信息，斜杠`/`是nonebot默认的命令起始符号，可以自定义设置。
 
-![image-20221208142819097](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208142819097.png)
+![image-20221208142819097](./qq-chatGPT/image-20221208142819097.png)
 
 # 安装插件
 
@@ -315,15 +315,15 @@ CHATGPT_TO_ME="False"           # 是否需要@机器人
 
 最后文件显示如下：
 
-![image-20221208160709537](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208160709537.png)
+![image-20221208160709537](./qq-chatGPT/image-20221208160709537.png)
 
 启动bot使用`nb run`命令，可以在输出信息中查看我们的插件是否被加载.
 
-![image-20221208143447455](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143447455.png)
+![image-20221208143447455](./qq-chatGPT/image-20221208143447455.png)
 
 最后效果如下
 
-![image-20221208143538843](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208143538843.png)
+![image-20221208143538843](./qq-chatGPT/image-20221208143538843.png)
 
 最后，如果不需要斜杠`/`来触发命令，则在`.env.dev`文件中配置如下即可。
 
@@ -333,7 +333,7 @@ command_start=[""]
 
 那么配置之后的效果则是通过**chat可以直接触发**
 
-![image-20221208162320883](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221208162320883.png)
+![image-20221208162320883](./qq-chatGPT/image-20221208162320883.png)
 
 关于上文的插件更多的配置可以参考[仓库链接](https://github.com/A-kirami/nonebot-plugin-chatgpt)
 

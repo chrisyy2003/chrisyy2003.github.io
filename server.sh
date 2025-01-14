@@ -1,1 +1,1 @@
-hexo clean && hexo s
+hexo clean && hexo s --debug

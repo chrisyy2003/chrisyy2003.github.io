@@ -21,12 +21,6 @@ categories:
 - go有协程
 - GC使用三色标记法
 
-## 数据类型与关键字
-
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(1).png)
-
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(2).png)
-
 ## print格式化输出函数
 
 Printf()，Sprintf()，FprintF() 虽然这三个函数，都是格式化输出，但是输出的目标不一样
@@ -258,7 +252,7 @@ value, ok := m["name"]
 
 根据 key 的不同类型/返回参数，编译器会将查找函数用更具体的函数替换
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(3).png)
+![](./golang-note/Untitled-(3).png)
 
 1. **写保护监测**
 
@@ -280,7 +274,7 @@ value, ok := m["name"]
 
 流程如下图：
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(4).png)
+![](./golang-note/Untitled-(4).png)
 
 Map遍历
 
@@ -507,7 +501,7 @@ channel内部数据结构主要包含：
 
 hchan结构体中**采用Mutex锁来保证数据读写安全**。在**对循环数组buf中的数据进行入队**和出队操作时，必须先获取**互斥锁**，才能操作channel数据。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled (6).png)
+![](./golang-note/Untitled-(6).png)
 
 ### channel应用场景
 

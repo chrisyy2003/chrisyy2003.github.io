@@ -16,7 +16,7 @@ https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/sources
 
 ## 架构
 
-![image-20221214141259428](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141259428.png)
+![image-20221214141259428](./intro-sui-framework/image-20221214141259428.png)
 
 每个 Objects 在 Sui 执行环境中都有一个唯一的 ID，并有指向所有者地址的内部指针。通过使用这些概念，很容易通过检查交易是否使用相同的 Objects 来识别关联。
 
@@ -24,7 +24,7 @@ https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/sources
 
 ## Sui Move
 
-![image-20221214141845093](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221214141845093.png)
+![image-20221214141845093](./intro-sui-framework/image-20221214141845093.png)
 
 # Framework分析
 
@@ -317,11 +317,11 @@ sui client call \
 
 可以发现交易结果中返回了一个新创建的对象`ID`，很明显这就是我们获得的`Counter`对象
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180338202.png)
+![](./intro-sui-framework/image-20221128180338202.png)
 
 同时在浏览器上可以直接通过对象`ID`看到`counter`的`value`字段的具体值
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180507340.png)
+![](./intro-sui-framework/image-20221128180507340.png)
 
 最后我们试图调用`incr`来使得`value`的值+1
 
@@ -338,7 +338,7 @@ sui client call \
 
 再次通过浏览器可以发现version（可以理解为修改的次数）被+1，同时`value`的字段值也成功+1
 
-![image-20221128182935767](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128182935767.png)
+![image-20221128182935767](./intro-sui-framework/image-20221128182935767.png)
 
 ## test_example
 

@@ -17,7 +17,7 @@ Aptos 和 Sui 都采用了Move这一语言，不过，具体使用的模型略�
 
 这意味着 Sui 链上的交易可以根据对象的不同可以来分组处理。使得大规模并行计算成为可能。下图是一个简单的例子，描述了可分为 3 组的 5 笔不同交易。这 3 组交易完全可以实现并行处理。
 
-![image-20221129160713548](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221129160713548.png)
+![image-20221129160713548](./hello-sui-1/image-20221129160713548.png)
 
 # 环境搭建
 
@@ -83,7 +83,7 @@ Select key scheme to generate keypair (0 for ed25519, 1 for secp256k1):
 
 键入`0`或`1`选择密钥方案，并创建了账户地址为`0x15bfbffe3425ad6e8e61fcc93bfb5c3ee4145d29`
 
-![image-20221128163950591](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128163950591.png)
+![image-20221128163950591](./hello-sui-1/image-20221128163950591.png)
 
 如果想重置客户端配置，可以删除用户下的sui文件夹即可
 
@@ -103,7 +103,7 @@ sui client active-address
 
 要获得测试代币可以在sui wallet中导入之前的助记词信息，随后点击request按钮即可。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221129165314088.png)
+![](./hello-sui-1/image-20221129165314088.png)
 
 第二种方式是加入[Discord](https://discord.gg/sui)，在[faucet频道](https://discord.com/channels/916379725201563759/971488439931392130)输入你的地址，从而获取代币。例如（注意前面的感叹号）：
 
@@ -111,17 +111,17 @@ sui client active-address
 !faucet 0x1083871113de333758c3d46136030d573f09ae18
 ```
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(8).png)
+![](./hello-sui-1/Untitled-(8).png)
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(9).png)
+![](./hello-sui-1/Untitled-(9).png)
 
 输入地址
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/Untitled%20(10).png)
+![](./hello-sui-1/Untitled-(10).png)
 
 随后查看gas，请求一次会获得5个Sui代币
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/20221128165808.png)
+![](./hello-sui-1/20221128165808.png)
 
 # 合约目录结构
 
@@ -227,7 +227,7 @@ sui move build
 
 成功的构建会返回类似于以下内容的响应：
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128172210962.png)
+![](./hello-sui-1/image-20221128172210962.png)
 
 如果构建失败，可以通过日志输出中的错误信息来排除和解决问题。
 
@@ -237,7 +237,7 @@ sui move build
 
 首先确保我们的账户已经有一定的测试代币
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128173051186.png)
+![](./hello-sui-1/image-20221128173051186.png)
 
 发布合约和调用合约，我们都可以使用 Sui CLI 客户端来完成。
 
@@ -249,7 +249,7 @@ sui client publish --gas-budget 10000
 
 发布时，Sui还会再次编译，随后会返回交易哈希，发布结果，交易结果等等。这些信息可以通过交易哈希在[区块浏览器](https://explorer.sui.io/transactions/M7SLyxPpt2kXi0idQ4ANNAYg3pw3BfulZhEf9z3L%2F0w%3D)上找到。
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128174742826.png)
+![](./hello-sui-1/image-20221128174742826.png)
 
 可以发现，运行此命令会创建一个`Immutable`类型的对象（0x31f33e53a2c7a2620fc1bbf8140ffc7bde3984fa），在sui中的对象包含三种类型：
 
@@ -286,11 +286,11 @@ sui client call \
 
 可以发现交易结果中返回了一个新创建的对象`ID`，很明显这就是我们获得的`Counter`对象
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180338202.png)
+![](./hello-sui-1/image-20221128180338202-20250113190410807.png)
 
 同时在浏览器上可以直接通过对象`ID`看到`counter`的`value`字段的具体值
 
-![](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128180507340.png)
+![](./hello-sui-1/image-20221128180507340-20250113190413755.png)
 
 最后我们试图调用`incr`来使得`value`的值+1
 
@@ -307,6 +307,6 @@ sui client call \
 
 再次通过浏览器可以发现version（可以理解为修改的次数）被+1，同时`value`的字段值也成功+1
 
-![image-20221128182935767](https://chrisyy-images.oss-cn-chengdu.aliyuncs.com/img/image-20221128182935767.png)
+![image-20221128182935767](./hello-sui-1/image-20221128182935767-20250113190416167.png)
 
 以上是Sui Move合约开发入门的第一节，[此处](https://github.com/chrisyy2003/sui-by-example/tree/main/hello_world)可以查看本文提到的代码。在Sui入门的第二节会来带Sui中的`Event`，初始化`Init`函数和Sui合约测试的相关内容。
